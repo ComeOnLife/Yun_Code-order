@@ -1,0 +1,26 @@
+/* pages/walletList/walletList.wxss */
+.log_item {
+    background: #fff;
+    padding: 10px;
+    border-bottom: 1px #ddd solid;
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.log_item .left {
+    width: 70%;
+}
+.log_item .left .one {
+    font-size: 34rpx;
+}
+.log_item .left .two {
+    font-size: 24rpx;
+    color: #999;
+}
+.log_item .right {
+    text-align: right;
+    width: 30%;
+    flex-shrink: 0;
+    color: #ff6000;
+}

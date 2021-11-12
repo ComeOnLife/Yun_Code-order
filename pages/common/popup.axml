@@ -1,0 +1,261 @@
+<import src='./product_list.axml' onChildRef='saveChildRef0'>
+</import><template name='popup_order'>
+  <view class='popup_bg' onTap='hidePopup'>
+  </view>
+  <view class='popup'>
+    <view class='popup_header'>
+      <text>
+        {{dishes.title}}      </text>      <view class='close_popup' onTap='hidePopup'>
+        <image src='/image/close_popup.png'>
+        </image>
+      </view>
+    </view>    <view class='popup_body'>
+      <scroll-view scroll-y=" ">
+        <view class='popup_body_content'>
+          <view class='popup_list'>
+            <view class='popup_list_title'>
+              <text>
+                {{dishes.shuxing_1}}              </text>
+            </view>            <view class='popup_list_content'>
+              <block a:for='{{format_list}}' a:key=" " ref-numbers='{{format_list}}'>
+                <view class="popup_list_item {{formatIndex1==index?'cur':''}}" data-key='formatIndex1' data-index='{{index}}' onTap='changeFormat'>
+                  <text>
+                    {{item.title_1}}                  </text>
+                </view>
+              </block>
+            </view>            <block a:if='{{format_list[formatIndex1].dishes_format_list.length>0}}'>
+              <block a:if="{{format_list[formatIndex1].dishes_format_list.length==1 && format_list[formatIndex1].dishes_format_list[0].title_2!='默认' || format_list[formatIndex1].dishes_format_list.length !=1}}">
+                <view class='popup_list_title'>
+                  <text>
+                    {{dishes.shuxing_2}}                  </text>
+                </view>                <view class='popup_list_content'>
+                  <block a:for='{{format_list[formatIndex1].dishes_format_list}}' a:key=" " ref-numbers='{{format_list[formatIndex1].dishes_format_list}}'>
+                    <view class="popup_list_item {{formatIndex2==index?'cur':''}}" data-key='formatIndex2' data-index='{{index}}' onTap='changeFormat'>
+                      <text>
+                        {{item.title_2}}                      </text>
+                    </view>
+                  </block>
+                </view>
+              </block>
+            </block>            <block a:if='{{format_list[formatIndex1].dishes_format_list[formatIndex2].dishes_format_list.length>0}}'>
+              <block a:if="{{format_list[formatIndex1].dishes_format_list[formatIndex2].dishes_format_list.length==1 && format_list[formatIndex1].dishes_format_list[formatIndex2].dishes_format_list[0].title_3!='默认' || format_list[formatIndex1].dishes_format_list[formatIndex2].dishes_format_list.length!=1}}">
+                <view class='popup_list_title'>
+                  <text>
+                    {{dishes.shuxing_3}}                  </text>
+                </view>                <view class='popup_list_content'>
+                  <block a:for='{{format_list[formatIndex1].dishes_format_list[formatIndex2].dishes_format_list}}' a:key=" " ref-numbers='{{format_list[formatIndex1].dishes_format_list[formatIndex2].dishes_format_list}}'>
+                    <view class="popup_list_item {{formatIndex3==index?'cur':''}}" data-key='formatIndex3' data-index='{{index}}' onTap='changeFormat'>
+                      <text>
+                        {{item.title_3}}                      </text>
+                    </view>
+                  </block>
+                </view>
+              </block>
+            </block>
+          </view>          <view class='popup_list'>
+            <view class='cart_number'>
+              <view class='cart_number_title'>
+                <text>
+                  数量                </text>
+              </view>              <view class='cart_number_content'>
+                <view class='cart_number_left' data-key='reduce' onTap='changeDishesNum'>
+                  <image src='/image/reduce_icon.png'>
+                  </image>
+                </view>
+                <view class='cart_number_middle'>
+                  <text>
+                    {{dishesNum}}                  </text>
+                </view>                <view class='cart_number_right' data-key='add' onTap='changeDishesNum'>
+                  <image src='/image/add_icon.png'>
+                  </image>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>    <view class='popup_foot'>
+      <view class='popup_foot_content'>
+        <view class='popup_foot_left color_red'>
+          <text class='icon'>
+            ￥          </text>          <text>
+            {{dishesPrice}}          </text>
+        </view>        <view class='popup_foot_right'>
+          <button class='weui-btn mini-btn primary-style mini-style' data-listindex='{{listIndex}}' data-id='{{dishes.id}}' type='primary' size='mini' onTap='addCartFormat'>
+            添加购物车
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+</template><template name='popup_cart_list'>
+  <view class='popup_bg popup_cart_bg' a:if='{{popupCartShow}}' onTap='closeCartPopup'>
+  </view>
+  <view class='popup_cart' animation='{{animationData}}'>
+    <view class='popup_cart_header'>
+      <view class='left'>
+        购物车
+      </view>
+      <view class='popup_cart_header_right' onTap='deleteAllCart'>
+        <image src='/image/del_icon.png'>
+        </image>
+        <text>
+          清空        </text>
+      </view>
+    </view>    <view class='popup_cart_middle'>
+      <scroll-view scroll-y=" ">
+        <view class='popup_cart_middle_content'>
+          <block a:for='{{shopping_cart}}' a:key=" " ref-numbers='{{shopping_cart}}'>
+            <view class='popup_cart_item'>
+              <view class='cart_number'>
+                <view class='cart_number_title'>
+                  <text>
+                    {{item.dishes_title}}                  </text>                  <text style='color:#999;font-size:24rpx;'>
+                    <block a:if="{{item.dishes_format_title_1!='默认'}}">
+                      [{{item.dishes_format_title_1}}]
+                    </block>
+                    <block a:if="{{item.dishes_format_title_2!='默认'}}">
+                      [{{item.dishes_format_title_2}}]
+                    </block>
+                    <block a:if="{{item.dishes_format_title_3!='默认'}}">
+                      [{{item.dishes_format_title_3}}]
+                    </block>
+                  </text>
+                </view>                <view class='popup_cart_item_price color_red'>
+                  <text class='icon'>
+                    ￥                  </text>                  <text>
+                    {{item.dishes_format.price}}                  </text>
+                </view>                <view class='cart_number_content'>
+                  <view class='cart_number_left' data-key='reduce' data-index='{{index}}' onTap='changeCartNum'>
+                    <image src='/image/reduce_icon.png'>
+                    </image>
+                  </view>
+                  <view class='cart_number_middle'>
+                    <text>
+                      {{item.number}}                    </text>
+                  </view>                  <view class='cart_number_right' data-key='add' data-index='{{index}}' onTap='changeCartNum'>
+                    <image src='/image/add_icon.png'>
+                    </image>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</template><template name='create_order_content'>
+  <view class='popup_header'>
+    <text>
+      确认订单    </text>    <view class='close_popup' onTap='hideOrderCreate'>
+      <image src='/image/close_popup.png'>
+      </image>
+    </view>
+  </view>  <view class='popup_body'>
+    <view class='popup_body_content'>
+      <view class='popup_list'>
+        <view class='popup_list_title'>
+          <text>
+            用餐人数:          </text>
+        </view>        <view class='popup_list_content'>
+          <input class='borderInput' type='number' value='{{user_number}}' placeholder='输入用餐人数' data-key='user_number' onInput='bindKeyInput'>
+          </input>
+        </view>
+      </view>      <view class='popup_list' style='padding-top:10px;padding-bottom:1px;'>
+        <view class='popup_list_title'>
+          <text>
+            餐具费:          </text>          <text style='color:#ff6000'>
+            {{tableware_price}}元/人          </text>
+        </view>
+      </view>      <view class='popup_list'>
+        <view class='popup_list_title'>
+          <text>
+            备注:          </text>
+        </view>        <view class='popup_list_content'>
+          <textarea style='height:80px;' class='borderInput' value='{{remark}}' placeholder='请输入用餐备注' data-key='remark' onInput='bindKeyInput'>
+          </textarea>
+        </view>
+      </view>
+    </view>
+  </view>  <view class='popup_foot'>
+    <view class='popup_foot_content'>
+      <view class='popup_foot_left color_red'>
+        <text class='icon'>
+          ￥        </text>        <text>
+          {{grand_total}}        </text>
+      </view>      <view class='popup_foot_right'>
+        <button class='weui-btn mini-btn primary-style mini-style' type='primary' size='mini' onTap='orderCreate'>
+          创建订单
+        </button>
+      </view>
+    </view>
+  </view>
+</template><template name='quren_dishes_content'>
+  <view class='popup_header'>
+    <text>
+      确认菜品    </text>    <view class='close_popup' onTap='hideOrderCreate'>
+      <image src='/image/close_popup.png'>
+      </image>
+    </view>
+  </view>  <view class='popup_body'>
+    <scroll-view scroll-y='true' class='create_order_scroll'>
+      <template is='quren_dishes_list' data='{{dishes_list:shopping_cart,baseUrl:baseUrl}}'>
+      </template>
+    </scroll-view>
+  </view>
+  <view class='popup_foot'>
+    <view class='popup_foot_content'>
+      <view class='popup_foot_left_wrap'>
+        <view class='popup_foot_left color_red'>
+          <text class='icon'>
+            ￥          </text>          <text>
+            {{grand_total}}          </text>
+        </view>
+      </view>      <view class='popup_foot_right'>
+        <button class='weui-btn mini-btn primary-style mini-style' type='primary' size='mini' onTap='saveDishes'>
+          确认菜品
+        </button>
+      </view>
+    </view>
+  </view>
+</template><template name='popup_create'>
+  <view class='popup_bg' onTap='hideOrderCreate'>
+  </view>
+  <view class='popup'>
+    <template is='quren_dishes_content' data='{{shopping_cart:shopping_cart,baseUrl:baseUrl,grand_total:grand_total}}'>
+    </template>
+  </view>
+</template><template name='add_remark'>
+  <view class='popup_bg' onTap='hidePopup'>
+  </view>
+  <view class='popup'>
+    <view class='popup_header'>
+      <text>
+        添加备注      </text>      <view class='close_popup' onTap='hidePopup'>
+        <image src='/image/close_popup.png'>
+        </image>
+      </view>
+    </view>    <view class='popup_body'>
+      <view class='popup_body_content'>
+        <view class='popup_list'>
+          <view class='popup_list_content'>
+            <textarea style='height:80px;' class='borderInput' value='{{remarkFlage}}' placeholder='请输入用餐备注' data-key='remarkFlage' onInput='bindKeyInput'>
+            </textarea>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='popup_foot'>
+      <view class='popup_foot_content'>
+        <view>
+        </view>
+        <view class='popup_foot_right'>
+          <button class='weui-btn mini-btn primary-style mini-style' type='primary' size='mini' onTap='add_remark'>
+            添加备注
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

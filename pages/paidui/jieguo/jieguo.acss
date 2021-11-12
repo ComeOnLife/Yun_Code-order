@@ -1,0 +1,42 @@
+/* pages/paidui/jieguo/jieguo.wxss */
+page {
+    background: #fff;
+}
+.paidui_shop {
+    color: #ed6a0c;
+    background-color: #fffbe8;
+    padding: 20rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    margin: 20rpx;
+    border-radius: 10rpx;
+}
+.jieguo_body {
+    text-align: center;
+    margin-top: 40rpx;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.jieguo_body .text {
+    font-size: 28rpx;
+    font-weight: bold;
+    text-align: center;
+}
+.jieguo_body .number {
+    font-size: 100rpx;
+    font-weight: bold;
+    padding: 50rpx 0 20rpx;
+    line-height: 1;
+}
+.jieguo_body .tip {
+    font-size: 24rpx;
+    color: #666;
+}
+.jieguo_area {
+    margin: 40rpx 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

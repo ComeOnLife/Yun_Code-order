@@ -1,0 +1,28 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/orderMsg/orderMsg",
+          "pathName": "pages/orderMsg/orderMsg",
+          "query": "oid=1620225116807989527",
+          "scene": null
+        },
+        {
+          "name": "pages/member/member",
+          "pathName": "pages/member/member",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

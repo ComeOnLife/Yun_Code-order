@@ -1,0 +1,51 @@
+<template name='orderList' onChildRef='saveChildRef0'>
+  <block a:if='{{orderList.length>0}}'>
+    <block a:for='{{orderList}}' a:key='{{key}}' ref-numbers='{{orderList}}'>
+      <view class='orderList_item'>
+        <navigator url='/pages/orderMsg/orderMsg?oid={{item.orderId}}&openid={{openid}}'>
+          <view class='top'>
+            <text>
+              订单号:{{item.orderId}}            </text>            <text class='redColor'>
+              {{item.payStatus}}            </text>
+          </view>          <view class='middle'>
+            <view class='order_middle_content'>
+              <view class='order_middle_item'>
+                <view class='left'>
+                  <text>
+                    时间:                  </text>                  <text>
+                    {{item.createTimeStr}}                  </text>
+                </view>
+              </view>              <view class='order_middle_item'>
+                <view class='left'>
+                  <text>
+                    桌位号:{{item.tableNo}}                  </text>
+                </view>                <view class='right'>
+                  <text>
+                    结算金额:                  </text>                  <text>
+                    ￥{{ item.closeMoney}}                  </text>
+                </view>
+              </view>
+            </view>
+          </view>          <view class='bottom'>
+            <view class='weui-panel__ft'>
+              <view class='weui-cell weui-cell_access weui-cell_link'>
+                <view class='weui-cell__bd'>
+                  查看详情
+                </view>
+                <view class='weui-cell__ft weui-cell__ft_in-access'>
+                </view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </block>
+  </block>  <view a:else >
+    <view class='list_empty'>
+      <image src='/image/empty_icon.png'>
+      </image>
+      <text>
+        列表为空      </text>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,7 @@
+/* addComment.wxss */
+.page__bd_spacing {
+    padding: 20px 15px;
+}
+.weui-cell::before {
+    border-top: none;
+}

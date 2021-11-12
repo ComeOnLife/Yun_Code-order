@@ -1,0 +1,20 @@
+<template name='userInform' onChildRef='saveChildRef0'>
+  <view class='header_inform'>
+    <navigator url='/pages/index/index' open-type='switchTab'>
+      <view class='header_inform_left'>
+        <image src='/image/goHome.png'>
+        </image>
+        <text>
+          返回首页        </text>
+      </view>
+    </navigator>    <view class='header_inform_right' a:if='{{showRight}}'>
+      <text>
+        桌位：{{tables.title}}      </text>      <block a:if='{{oid}}'>
+        <view class='change_tables right'>
+          <text class='border_shock' onTap='seeOrderMsg'>
+            查看已点菜品          </text>
+        </view>
+      </block>
+    </view>
+  </view>
+</template>

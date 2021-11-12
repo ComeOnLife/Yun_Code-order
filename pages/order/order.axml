@@ -1,0 +1,120 @@
+<view class='page-container-classname'>
+                <import src='../common/userInform.axml' onChildRef='saveChildRef0'>
+</import><import src='../common/product_list.axml'>
+</import><import src='../common/popup.axml'>
+</import><view class='page'>
+  <view class='page_header'>
+    <template is='userInform' data="{{userInfo:userInfo,baseUrl:baseUrl,showRight:showRight,tables:tables,navigator:'switchTab',oid:oid}}">
+    </template>
+  </view>
+  <view class='brand_left'>
+    <scroll-view scroll-y=" ">
+      <view class="brand_left_item {{typeIndex=='all'?'cur':''}}" data-index='all' onTap='changeBrand'>
+        <text>
+          全部        </text>
+      </view>      <block a:for='{{type_list}}' a:key='{{id}}' ref-numbers='{{type_list}}'>
+        <view class="brand_left_item {{index === typeIndex?'cur':''}}" data-index='{{index}}' onTap='changeBrand'>
+          <text>
+            {{item.title}}          </text>
+        </view>
+      </block>
+    </scroll-view>
+  </view>  <view class='brand_content'>
+    <scroll-view scroll-y='{{!scrollFlage}}'>
+      <view class='dishes_title'>
+        <block a:if="{{typeIndex=='all'}}">
+          <text>
+            全部菜品          </text>
+        </block>        <block a:else >
+          <text>
+            {{type_list[typeIndex].title}}          </text>
+        </block>
+      </view>      <template is='order_product_list' data='{{dishes_list:productList,baseUrl:baseUrl}}'>
+      </template>
+      <view class='weui-loadmore' a:if='{{showMoreIcon}}'>
+        <view class='weui-loading'>
+        </view>
+        <view class='weui-loadmore__tips'>
+          正在加载
+        </view>
+      </view>
+      <view class='weui-loadmore weui-loadmore_line' a:if='{{!hasMoreData}}'>
+        <view class='weui-loadmore__tips weui-loadmore__tips_in-line'>
+          没有更多数据了
+        </view>
+      </view>
+    </scroll-view>
+  </view>  <view class='cart_bottom'>
+    <view class='cart_bottom_content'>
+      <block a:if='{{shopping_cart.length>0}}'>
+        <view class='cart_icon' onTap='changeCartPopup'>
+          <view class='cart_icon_content'>
+            <image src='/image/cart_icon.png'>
+            </image>
+            <view class='cart_number_icon'>
+              {{shopping_cart.length}}
+            </view>
+          </view>
+        </view>
+        <block a:if='{{oid}}'>
+          <view class='cart_total_price'>
+            <view class='cart_total_price_content'>
+              <view class='price'>
+                <text class='icon'>
+                  ￥                </text>                <text>
+                  {{subtotal}}                </text>
+              </view>
+            </view>
+          </view>          <view class='cart_bottom_right btn' onTap='showOrderCreate'>
+            <text>
+              加菜            </text>
+          </view>
+        </block>        <block a:else >
+          <view class='cart_total_price'>
+            <view class='cart_total_price_content'>
+              <text class='icon'>
+                ￥              </text>              <text>
+                {{subtotal}}              </text>
+            </view>
+          </view>          <view class='cart_bottom_right btn' onTap='createOrderMsg'>
+            <text>
+              下单            </text>
+          </view>
+        </block>
+      </block>      <block a:else >
+        <view class='cart_icon'>
+          <view class='cart_icon_content noshop'>
+            <image src='/image/cart_icon.png'>
+            </image>
+          </view>
+        </view>
+        <view class='cart_total_price'>
+          <view class='cart_total_price_content'>
+            <text class='noshop'>
+              未选购商品            </text>
+          </view>
+        </view>        <block a:if='{{oid}}'>
+          <view class='cart_bottom_right btn noshop'>
+            <text>
+              加菜            </text>
+          </view>
+        </block>        <block a:else >
+          <view class='cart_bottom_right btn noshop'>
+            <text>
+              下单            </text>
+          </view>
+        </block>
+      </block>
+    </view>
+  </view>
+</view><view class='popup_wrap' a:if='{{popupOnShow}}'>
+  <template is='popup_order' data='{{format_list:format_list,ext_list:ext_list,dishes:dishes,dishesNum:dishesNum,formatIndex1:formatIndex1,formatIndex2:formatIndex2,formatIndex3:formatIndex3,extIndex:extIndex,dishesPrice:dishesPrice,listIndex:listIndex}}'>
+  </template>
+</view><view class='popup_wrap'>
+  <template is='popup_cart_list' data='{{shopping_cart:shopping_cart,popupCartShow:popupCartShow,animationData:animationData}}'>
+  </template>
+</view><block a:if='{{popupOrderShow}}'>
+  <template is='popup_create' data='{{shopping_cart:shopping_cart,baseUrl:baseUrl,grand_total:showGrand_total,user_number:user_number,tableware_price:tableware_price}}'>
+  </template>
+</block>
+            </view>

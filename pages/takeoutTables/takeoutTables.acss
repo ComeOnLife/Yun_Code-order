@@ -1,0 +1,482 @@
+/* pages/classification/classification.wxss */
+
+page {
+    height: 100%;
+}
+/* .page-container-classname {
+  width: 100%;
+  height: 100%;
+} */
+
+.class-view {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    flex-flow: column nowrap;
+    /* position: relative; */
+}
+
+.topView {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #1a99fb;
+    width: 100%;
+    height: 100rpx;
+    padding: 0 32rpx;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.topLeftView {
+    align-items: center;
+    color: white;
+    font-size: 26rpx;
+}
+
+.topLeftView image {
+    width: 60rpx;
+    height: 60rpx;
+    margin-right: 12rpx;
+    /* border: 2rpx silver red; */
+}
+
+.topRightLabel {
+    font-size: 30rpx;
+    color: white;
+}
+
+/* 内容 */
+.class-content {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    flex-flow: row nowrap;
+    padding-bottom: 100rpx;
+    padding-top: 100rpx;
+}
+
+/* 左边 */
+.left_view {
+    display: flex;
+    left: 0;
+    width: 200rpx;
+    /* height: 100%; */
+    background: #f8f8f8;
+    flex-flow: column nowrap;
+}
+
+.cell-left {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 96rpx;
+    background-color: #f8f8f8;
+    font-size: 30rpx;
+    color: #2f3234;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftItemNumber {
+    position: absolute;
+    right: 4rpx;
+    top: 8rpx;
+    height: 30rpx;
+    min-width: 30rpx;
+    background-color: #ff3b30;
+    border-radius: 15rpx;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftItemNumber text {
+    color: white;
+    font-size: 26rpx;
+    font-weight: 400;
+}
+
+.select {
+    background-color: white;
+    font-size: 30rpx;
+    font-weight: 500;
+    color: #e94e5b;
+}
+
+/* 右边 */
+.class-right-scrollView {
+    box-sizing: border-box;
+    /* display: flex;
+    flex: 1; */
+    /* flex-wrap: wrap; */
+    /* width: 100%; */
+    height: calc(100vh - 200rpx);
+    background-color: white;
+    
+}
+
+.class-right-view {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    flex-flow: row wrap;
+    background-color: white;
+}
+
+.cell-right {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    /* min-height: 200rpx; */
+    height: 200rpx;
+    background-color: white;
+    padding: 10rpx 30rpx 15rpx 15rpx;
+    justify-content: flex-start;
+}
+
+.cell-imageView {
+    width: 140rpx;
+    height: 140rpx;
+    /* background-color: orange; */
+}
+
+.cell-imageView image {
+    width: 100%;
+    height: 100%;
+}
+
+.cell-right-contentView {
+    flex: 1;
+    /* height: 100%; */
+    min-height: 175rpx;
+    margin-left: 20rpx;
+    border-bottom: 2rpx #f0f0f0 solid;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.contentView-title {
+    width: 100%;
+    padding-top: 3rpx;
+    color: #333333;
+    font-size: 30rpx;
+    font-weight: 400;
+}
+
+.contentView-des {
+    width: 100%;
+    padding-top: 5rpx;
+    color: #999;
+    font-size: 28rpx;
+    font-weight: 400;
+}
+
+.priceLabel {
+    padding-top: 8rpx;
+    padding-right: 40rpx;
+    font-size: 34rpx;
+    font-weight: 400;
+    color: #e94e5b;
+}
+
+.priceLabel text {
+    padding-right: 4rpx;
+    font-size: 24rpx;
+    font-weight: 400;
+    color: #e94e5b;
+}
+
+.addShopCartView {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 90rpx;
+    /* width: 90rpx; */
+    /* justify-content: center;align-items: center; */
+}
+.addShopCartView image {
+    width: 45rpx;
+    height: 45rpx;
+}
+
+.stockZero {
+    font-size: 28rpx;
+    color: #999999;
+}
+
+/* 底部显示条 */
+.bottomToolView {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    padding-left: 170rpx;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(71, 71, 73, 1);
+    z-index: 101;
+}
+
+.bottomPriceLabel {
+    font-size: 36rpx;
+    font-weight: 500;
+    color: white;
+}
+
+.bottomPriceLabel text {
+    padding: 6rpx 4rpx 0 0;
+    color: white;
+    font-size: 30rpx;
+    font-weight: 400;
+}
+
+.PlaceOrderView {
+    background-color: #1a99fb;
+    width: 250rpx;
+    height: 100%;
+    color: white;
+    font-size: 36rpx;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.PlaceOrderView.default {
+    background-color: rgb(104, 104, 104);
+}
+
+.shopCartView {
+    position: absolute;
+    width: 130rpx;
+    height: 130rpx;
+    border-radius: 75rpx;
+    background-color: rgba(78, 78, 80, 1);
+    left: 20rpx;
+    bottom: 0;
+    z-index: 102;
+    justify-content: center;
+    align-items: center;
+}
+
+.shopCartView image {
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 55rpx;
+    position: relative;
+}
+
+.shopNumber {
+    position: absolute;
+    top: 5rpx;
+    right: 10rpx;
+    background-color: #ff3b30;
+    color: white;
+    font-size: 26rpx;
+    font-weight: 400;
+    text-align: center;
+    min-width: 36rpx;
+    height: 36rpx;
+    border-radius: 18rpx;
+}
+
+.goodsListView {
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    flex-flow: column nowrap;
+    /* padding-bottom: 100rpx; */
+    background-color: white;
+}
+
+.goodsListHeadView {
+    width: 100%;
+    height: 70rpx;
+    background-color: #f8f8f8;
+    justify-content: space-between;
+}
+
+.headLeftView {
+    height: 100%;
+    padding: 0 20rpx;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.headLeftView view {
+    width: 4rpx;
+    height: 30rpx;
+    margin-right: 20rpx;
+    background-color: #1a99fb;
+}
+
+.headViewText {
+    font-size: 28rpx;
+    color: #333333;
+    font-weight: 400;
+}
+
+.headRightView {
+    height: 100%;
+    padding: 0 20rpx;
+    align-items: center;
+}
+
+.headRightView image {
+    width: 40rpx;
+    height: 40rpx;
+    padding-right: 10rpx;
+}
+
+.shopTableView {
+    width: 100%;
+    flex-flow: column nowrap;
+    padding: 0 30rpx;
+    height: 530rpx;
+    overflow-y: scroll;
+}
+
+.shopCell {
+    width: 100%;
+    height: 110rpx;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2rpx #f0f0f0 solid;
+}
+
+.shopCellRightView {
+    height: 100%;
+    align-items: center;
+    /* justify-content: flex-end; */
+}
+
+.opationBut {
+    height: 100%;
+    align-items: center;
+}
+
+.opationBut image {
+    width: 45rpx;
+    height: 45rpx;
+}
+
+.numberLable {
+    width: 60rpx;
+    font-size: 28rpx;
+    color: black;
+    font-weight: 400;
+    text-align: center;
+}
+
+.priceLabel.shopCart {
+    padding-top: 0;
+}
+
+.phone-button {
+    position: absolute;
+    top: 0rpx;
+    left: 0rpx;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+}
+/* 请选择就餐人数 */
+.addclass {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(71, 71, 73, 0.3);
+}
+.add_a {
+    width: 100%;
+    height: 650rpx;
+    background-color: #ffffff;
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    z-index: 102;
+    overflow: hidden;
+    animation: info 0.5s;
+    border-top-left-radius: 20rpx;
+    border-top-right-radius: 20rpx;
+}
+/* .add_b {
+  display: flex;
+  justify-content: center;
+  margin-top: 115rpx;
+  font-size: 40rpx;
+  background-color: #fff;
+} */
+.add_c {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100rpx;
+    border-bottom: 1px solid #eee;
+    z-index: 10;
+}
+.add_c_qu {
+    font-size: 34rpx;
+    color: #7f7f7f;
+}
+.add_c_ren {
+    font-size: 40rpx;
+}
+.add_c_que {
+    font-size: 34rpx;
+    color: #1a99fb;
+}
+.add_d {
+    width: 100%;
+    height: 550rpx;
+    overflow: scroll;
+}
+.add_1 {
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+.hover_add {
+    color: tan;
+}
+.info {
+    background-color: #eee;
+    color: red;
+}
+@keyframes info {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 650rpx;
+    }
+}
+.abc {
+  position: absolute;
+  bottom: 0;
+  /* height: 50%; */
+  /* bottom: -600rpx; */
+  overflow: hidden;
+  z-index: 100;
+}
+.closeTap {
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 50%;
+  background-color: transparent;
+}
+

@@ -1,0 +1,212 @@
+/* pages/orderMsg/orderMsg.wxss */
+.order_list {
+    padding: 30rpx 30rpx 0 30rpx;
+    background: #fff;
+    border-top: 1rpx #d9d9d9 solid;
+    /* border-bottom: 1rpx #d9d9d9 solid; */
+}
+.cart_bottom {
+    position: fixed;
+    height: 100rpx;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: #474749;
+    z-index: 9;
+}
+.cart_bottom_content,
+.cart_bottom_orderMsg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 0 200rpx 0 150rpx;
+    box-sizing: border-box;
+}
+.cart_bottom_orderMsg {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.cart_icon {
+    width: 120rpx;
+    height: 120rpx;
+    position: absolute;
+    box-sizing: border-box;
+    border-radius: 200rpx;
+    bottom: 5rpx;
+    left: 20rpx;
+    text-align: center;
+    line-height: 120rpx;
+    padding: 10rpx;
+    background: #4e4e50;
+    box-shadow: 0 -5rpx 10rpx 5rpx rgba(71, 71, 73, 0.1);
+}
+.cart_icon_content {
+    background: #0d9cff;
+    width: 100%;
+    height: 100%;
+    border-radius: 200rpx;
+}
+.cart_icon_content.noshop {
+    background: #474749;
+}
+.cart_number_icon {
+    position: absolute;
+    background: #ff461d;
+    padding: 8rpx 12rpx;
+    color: #fff;
+    font-size: 24rpx;
+    line-height: 1;
+    top: 0;
+    right: 10rpx;
+    border-radius: 100px;
+}
+.cart_icon image {
+    width: 70rpx;
+    height: 70rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.cart_bottom_right {
+    width: 200rpx;
+    height: 100%;
+    text-align: center;
+    background: #38ca73;
+    color: #fff;
+    font-size: 36rpx;
+    top: 0;
+    right: 0;
+    position: absolute;
+    line-height: 100rpx;
+}
+.cart_bottom_right.noshop {
+    background: #686868;
+    font-size: 28rpx;
+    color: #999;
+}
+.cart_total_price {
+    height: 100%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+.cart_total_price .one {
+    display: block;
+    line-height: 1;
+    font-size: 40rpx;
+}
+.cart_total_price .two {
+    display: block;
+    font-size: 22rpx;
+    line-height: 1;
+}
+.cart_total_price .noshop {
+    font-size: 28rpx;
+    color: #999;
+}
+.dishes_title {
+    background: #f6f6f6;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dishes_title text,
+.dishes_title picker {
+    padding: 16rpx 20rpx;
+}
+.dishes_title .picker {
+    color: #0d9cff;
+}
+.cart_bottom_orderMsg .cart_total_price_content {
+    padding-left: 30rpx;
+}
+.cart_bottom_orderMsg_btn {
+    height: 100%;
+    display: flex;
+}
+.detail_btn {
+    height: 100%;
+    background: #999;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 36rpx;
+    color: #fff;
+}
+.cart-leftnone {
+    padding-left: 10px;
+}
+.cart_bottom_white {
+    background: #fff;
+    border-top: 1px #ddd solid;
+}
+.cart_bottom_white::after {
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.2);
+    content: "";
+    position: fixed;
+}
+.cart_bottom_white .cart_total_price .tip {
+    color: #999;
+}
+.cart_bottom_white .cart_total_price .price {
+    color: #fe6c27;
+}
+.right_two {
+    right: 200rpx;
+    background: #0097ff;
+}
+.beizhu_orders {
+    padding: 30rpx;
+    background: #fff;
+    font-size: 32rpx;
+    color: #666;
+    border-top: 1px #ddd solid;
+    border-bottom: 1px #ddd solid;
+}
+.cart-leftnone {
+    display: flex;
+    align-items: center;
+}
+.cart_total_price_wrap .cart_total_price {
+    line-height: 1;
+    font-size: 32rpx;
+}
+.cart_total_price_wrap .cart_total_price .tip {
+    font-size: 24rpx;
+}
+
+.top_tip {
+    padding: 20rpx 30rpx 0 30rpx;
+    font-size: 24rpx;
+}
+.btn-color-hui {
+    background: #999;
+}
+/* 加菜 */
+.addsnacks {
+    position: absolute;
+    top: 90rpx;
+    right: 0rpx;
+    /* color: #fe6c27; */
+    width: 20%;
+    height: 110rpx;
+    /* border-top-left-radius: 35rpx;
+  border-bottom-left-radius: 35rpx; */
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.addclass {
+    font-size: 40rpx;
+    font-weight: 800;
+    width: 100%;
+    background-color: #1a99fb;
+    color: #ffffff;
+    /* background-color: #fed76e; */
+}

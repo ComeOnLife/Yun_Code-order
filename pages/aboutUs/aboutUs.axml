@@ -1,0 +1,9 @@
+<view class='page-container-classname'>
+                <import src='../wxParse/wxParse.axml' onChildRef='saveChildRef0'>
+</import><view class='about'>
+  <view class='about_content'>
+    <template is='wxParse' data='{{wxParseData:article.nodes}}'>
+    </template>
+  </view>
+</view>
+            </view>

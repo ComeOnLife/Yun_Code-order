@@ -1,0 +1,50 @@
+<view class='page-container-classname'>
+                <view class='page' onChildRef='saveChildRef0'>
+  <view class='recharge_rule'>
+    <view class='recharge_rule_title'>
+      充值规则
+    </view>
+    <block a:for='{{rule_list}}' a:key=" " ref-numbers='{{rule_list}}'>
+      <view class='rechange_rule_item'>
+        <text>
+          充 {{item.amount_1}}        </text>        <text>
+          赠 {{item.amount_2}}        </text>
+      </view>
+    </block>
+  </view>  <view class='weui-cells__title'>
+    充值金额
+  </view>
+  <view class='weui-cells weui-cells_after-title'>
+    <view class='weui-cell weui-cell_input'>
+      <view class='weui-cell__hd'>
+        <view class='weui-label'>
+          金额
+        </view>
+      </view>
+      <view class='weui-cell__bd'>
+        <input class='weui-input' type='digit' placeholder='请输入充值金额' onInput='chargeNum'>
+        </input>
+      </view>
+    </view>
+  </view>
+  <view class='weui-btn-area'>
+    <button class='weui-btn primary-style' type='primary' onTap='recharge'>
+      充值
+    </button>
+  </view>
+  <view class='recharge_rule'>
+    <block a:for='{{rule_list}}' a:key=" " ref-numbers='{{rule_list}}'>
+      <view class='recharge_rule_item' data-id='{{item.id}}' onTap='recharge'>
+        <view class='recharge_rule_content'>
+          <view class='one'>
+            ￥{{item.amount_1}}
+          </view>
+          <view class='two' a:if='{{item.amount_2}}'>
+            赠 {{item.amount_2}}元
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+            </view>

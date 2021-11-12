@@ -1,0 +1,147 @@
+<import-sjs onChildRef='saveChildRef0' from='../temp/imageF.sjs' name='imageF'>
+</import-sjs><template name='index_product_list'>
+  <block a:if='{{dishes_list.length>0}}'>
+    <view class='product_list'>
+      <block a:for='{{dishes_list}}' a:key='{{id}}' ref-numbers='{{dishes_list}}'>
+        <view class='product_list_item'>
+          <image src='{{imageF.filterFunc(item.img_url,baseUrl,400,400)}}'>
+          </image>
+          <view class='product_list_item_content'>
+            <text class='title'>
+              {{item.title}}            </text>            <text class='remark'>
+              {{item.remark}}            </text>            <view class='price'>
+              <text class='icon'>
+                ￥{{item.price}}              </text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>  <view a:else >
+    <view class='list_empty'>
+      <image src='/image/kong2_icon.png'>
+      </image>
+      <text>
+        列表为空      </text>
+    </view>
+  </view>
+</template><template name='order_product_list'>
+  <view class='product_list'>
+    <block a:for='{{dishes_list}}' a:key='{{id}}' ref-numbers='{{dishes_list}}'>
+      <view class='product_list_item'>
+        <image src='{{imageF.filterFunc(item.img_url,baseUrl,400,400)}}' data-url='{{imageF.filterFunc(item.img_url,baseUrl,400,400)}}' onTap='previewImg'>
+        </image>
+        <view class='product_list_item_content'>
+          <view class='title'>
+            <view class='title_content'>
+              <text>
+                {{item.title}}              </text>
+            </view>            <view>
+              <text class='top' a:if='{{item.top}}'>
+                推荐              </text>              <text class='hot' a:if='{{item.hot}}'>
+                热卖              </text>
+            </view>
+          </view>          <text class='remark'>
+            {{item.remark}}          </text>          <view class='product_bottom_func'>
+            <view class='price'>
+              <text class='icon'>
+                ￥              </text>              <text>
+                {{item.price}}              </text>              <text a:if='{{item.status==1 && item.month_number>0}}' class='stock'>
+                月销量：{{item.month_number}}份              </text>
+            </view>            <block a:if='{{item.status==1}}'>
+              <view class='product_format clearfix' data-id='{{item.id}}' data-index='{{index}}' onTap='addDishes'>
+                <image src='/image/add_icon.png'>
+                </image>
+              </view>
+            </block>
+            <block a:elif='{{item.status==0}}'>
+              <view class='product_format_tip'>
+                <text>
+                  停售中                </text>
+              </view>
+            </block>            <block a:elif='{{item.status==2 || item.stock<=0}}'>
+              <view class='product_format_tip'>
+                <text>
+                  已售罄                </text>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</template><template name='orderMsg_product_list'>
+  <block a:if='{{dishes_list.length>0}}'>
+    <view class='product_list'>
+      <block a:for='{{dishes_list}}' a:key='{{key}}' ref-numbers='{{dishes_list}}'>
+        <view class='product_list_item'>
+          <image src='{{imageF.filterFunc(item.productIcon,baseUrl,400,400)}}'>
+          </image>
+          <view class='product_list_item_content'>
+            <text class='title'>
+              {{item.productName}}            </text>            <view class='remark'>
+              <view>
+                规格:默认
+              </view>
+            </view>
+            <view class='product_bottom_func'>
+              <view class='price price_new'>
+                <view class='vip_price'>
+                  <text class='icon'>
+                    ￥                  </text>                  <text>
+                    {{item.productPrice}}                  </text>
+                </view>
+              </view>              <view class='product_format_tip' style='color:#222'>
+                <text>
+                  × {{item.productQuantity}}                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>  <view a:else >
+    <view class='list_empty'>
+      <image src='/image/kong2_icon.png'>
+      </image>
+      <text>
+        列表为空      </text>
+    </view>
+  </view>
+</template><template name='quren_dishes_list'>
+  <block a:if='{{dishes_list.length>0}}'>
+    <view class='product_list'>
+      <block a:for='{{dishes_list}}' a:key='{{id}}' ref-numbers='{{dishes_list}}'>
+        <view class='product_list_item'>
+          <image src="{{item.icon ? imageF.filterFunc(item.icon,'',400,400) : '/image/defaultImage.png'}}">
+          </image>
+          <view class='product_list_item_content'>
+            <view class='title'>
+              {{item.name}}
+            </view>
+            <view class='remark'>
+              规格:默认              <block a:if="{{item.dishes_format_title_1!='默认'}}">
+                {{item.dishes_format_title_1}}
+              </block>
+              <block a:if="{{item.dishes_format_title_2!='默认'}}">
+                {{item.dishes_format_title_2}}
+              </block>
+              <block a:if="{{item.dishes_format_title_3!='默认'}}">
+                {{item.dishes_format_title_3}}
+              </block>
+            </view>
+            <view class='product_bottom_func'>
+              <view class='price'>
+                <text class='icon'>
+                  ￥{{item.price}}                </text>
+              </view>              <view class='product_format_tip' style='color:#222'>
+                <text>
+                  × {{item.number}}                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+</template>

@@ -1,0 +1,6 @@
+{
+	"navigationBarTextStyle": "white",
+	"usingComponents": { "van-checkbox": "/dist/checkbox/index" },
+	"defaultTitle": "创建订单",
+	"titleBarColor": "#1A99FB"
+}

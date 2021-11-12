@@ -1,0 +1,197 @@
+<view class='page-container-classname'>
+                <import src='../common/product_list.axml' onChildRef='saveChildRef0'>
+</import><import src='../common/popup.axml'>
+</import><import src='../common/addressItem.axml'>
+</import><import src='../common/foot.axml'>
+</import><view class='page'>
+  <block a:if='{{false}}'>
+    <view class='payMethod' a:if='{{false}}'>
+      <view class='payMethod_top'>
+        <view class='title'>
+          <image mode='aspectFit' src='/image/dfh_icon.png'>
+          </image>
+          <text>
+            配送方式          </text>
+        </view>
+      </view>      <view class='payMethod_bottom'>
+        <block a:if='{{takeaway_distribution_status}}'>
+          <view class='payMethod_item {{peisongCur}}' data-method='{{0}}' onTap='toggleTakeOwn'>
+            <text>
+              配送            </text>
+          </view>
+        </block>        <block a:if='{{takeaway_own_status}}'>
+          <view class='payMethod_item {{zitiCur}}' data-method='{{1}}' onTap='toggleTakeOwn'>
+            <text>
+              自提            </text>
+          </view>
+        </block>
+      </view>
+    </view>    <view class='weui-cells__title'>
+      填写用户信息
+    </view>
+    <block a:if='{{!take_name}}'>
+      <view class='pay_order_address'>
+        <navigator url="/pages/address/address?take_own={{take_own}}&appointment='appointment'">
+          <view class='add_address_icon showRight'>
+            <image src='/image/add_address_icon.jpg' mode='aspectFit'>
+            </image>
+            <text>
+              填写用户信息            </text>
+          </view>
+        </navigator>
+      </view>
+    </block>    <block a:else >
+      <view class='pay_order_address'>
+        <template is='addressItem' data='{{take_name:take_name,take_mobile:take_mobile,take_address:take_address,showRight:showRight,take_own:take_own,take_date:take_date,appointment:appointment}}'>
+        </template>
+      </view>
+    </block>
+  </block>  <view class='payMethod'>
+    <view class='payMethod_top'>
+      <view class='title'>
+        <image mode='aspectFit' src='/image/kong2_icon.png'>
+        </image>
+        <text>
+          就餐方式        </text>
+      </view>
+    </view>    <view class='payMethod_bottom'>
+      <block a:if='{{takeaway_distribution_status}}'>
+        <view class="payMethod_item {{diningIndex == 0 ? 'cur' : ''}}" data-value='{{0}}' onTap='changeDidingType'>
+          <text>
+            店内就餐          </text>
+        </view>
+      </block>      <block a:if='{{takeaway_own_status}}'>
+        <view class="payMethod_item {{diningIndex == 1 ? 'cur' : ''}}" data-value='{{1}}' onTap='changeDidingType'>
+          <text>
+            打包带走          </text>
+        </view>
+      </block>
+    </view>
+  </view>  <block a:if="{{buyType == '3'}}">
+    <view class='weui-cells__title'>
+      取餐时间
+    </view>
+    <view class='weui-cells weui-cells_after-title fontsize32'>
+      <view class='weui-cell weui-cell_select'>
+        <view class='weui-cell__hd weui-cell__hd_in-select-after'>
+          <view class='weui-label'>
+            取餐时间
+          </view>
+        </view>
+        <view class='weui-cell__bd'>
+          <picker mode='time' value='{{takeOutTime}}' onChange='bindTakeOutTimeChange'>
+            <view class='weui-select weui-select_in-select-after text_right'>
+              {{takeOutTime}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class='weui-cells__title'>
+    菜品列表
+  </view>
+  <view class='borderBottom'>
+  </view>
+  <view class='order_list'>
+    <template is='quren_dishes_list' data='{{dishes_list:shopping_cart,baseUrl:baseUrl}}'>
+    </template>
+  </view>
+  <view class='borderBottom'>
+  </view>
+  <view class='weui-cells__title'>
+    备注
+  </view>
+  <view class='weui-cells weui-cells_after-title fontsize32'>
+    <view a:if='{{newIshwo}}' class='weui-cell weui-cell_select'>
+      <view class='weui-cell__hd weui-cell__hd_in-select-after'>
+        <view class='weui-label'>
+          用餐人数
+        </view>
+      </view>
+      <view class='weui-cell__bd'>
+        <picker value='{{user_number_index}}' range='{{userList}}' onChange='changeUserNumber'>
+          <view class='weui-select weui-select_in-select-after text_right'>
+            {{user_number || '便于商家提供餐具'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='weui-cell weui-cell_access' hover-class='weui-cell_active' onTap='showPopup'>
+      <view class='weui-cell__bd'>
+        订单备注
+      </view>
+      <view class='weui-cell__ft weui-cell__ft_in-access'>
+        <view class='overHidden'>
+          {{remark || '口味，偏好等'}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='weui-cells__title'>
+    辅助信息
+  </view>
+  <view class='weui-cells weui-cells_after-title fontsize32'>
+    <block a:if='{{!takeaway}}'>
+      <block a:if='{{!appointment}}'>
+        <block a:if='{{take_own==0}}'>
+        </block>
+      </block>
+    </block>
+    <block a:else >
+    </block>
+    <view a:if='{{newIshwo}}' class='weui-cell'>
+      <view class='weui-cell__bd'>
+        餐位费
+      </view>
+      <view class='weui-cell__ft'>
+        +￥{{tables}}
+      </view>
+    </view>
+    <view class='weui-cell'>
+      <view class='weui-cell__bd'>
+        小计
+      </view>
+      <view class='weui-cell__ft fontW' a:if='{{newIshwo}}'>
+        ￥{{shopSun}}
+      </view>
+      <view class='weui-cell__ft fontW' a:else >
+        ￥{{subtotal}}
+      </view>
+    </view>
+  </view>
+  <view class='cart_bottom'>
+    <view class='cart_bottom_content'>
+      <view class='cart_total_price'>
+        <view class='cart_total_price_content'>
+          <text class='one' a:if='{{ newIshwo}}'>
+            待支付￥{{shopSun}}          </text>          <text class='one' a:else >
+            待支付￥{{subtotal}}          </text>
+        </view>
+      </view>      <block a:if='{{takeaway}}'>
+        <block a:if='{{takeaway_distribution_status||takeaway_own_status || appointment}}'>
+          <view class='cart_bottom_right btn' onTap='createTakeaWayOrder'>
+            <text>
+              创建订单            </text>
+          </view>
+        </block>        <block a:else >
+          <view class='cart_bottom_right btn disable'>
+            <text>
+              无法创建            </text>
+          </view>
+        </block>
+      </block>      <block a:else >
+        <view class='cart_bottom_right btn' onTap='createOrder'>
+          <text>
+            创建订单          </text>
+        </view>
+      </block>
+    </view>
+  </view>
+</view><template is='foot'>
+</template><view class='jiange100'>
+</view><block a:if='{{popupShow}}'>
+  <template is='add_remark' data='{{remarkFlage:remarkFlage,baseUrl:baseUrl}}'>
+  </template>
+</block>
+            </view>

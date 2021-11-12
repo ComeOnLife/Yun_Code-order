@@ -1,0 +1,5 @@
+@import "../common/index.acss";
+:host {
+    -webkit-flex: 1;
+    flex: 1;
+}

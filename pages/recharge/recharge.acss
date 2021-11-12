@@ -1,0 +1,58 @@
+/* pages/recharge/recharge.wxss */
+.recharge_rule {
+    background: #fff;
+    padding: 40rpx 20rpx;
+    border-bottom: 1rpx #ddd solid;
+}
+.recharge_rule_title {
+    font-size: 36rpx;
+    position: relative;
+    text-align: center;
+}
+.recharge_rule_title::before {
+    position: absolute;
+    width: 60px;
+    height: 1rpx;
+    background: #ddd;
+    content: "";
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.recharge_rule_title::after {
+    position: absolute;
+    width: 60px;
+    height: 1rpx;
+    background: #ddd;
+    content: "";
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.recharge_rule {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+}
+.recharge_rule_item {
+    padding: 20rpx;
+    text-align: center;
+    width: 50%;
+    box-sizing: border-box;
+}
+.recharge_rule_content {
+    border: 1rpx #ddd solid;
+    padding: 10rpx;
+}
+.recharge_rule_item .one {
+    font-size: 50rpx;
+    color: #0097ff;
+    vertical-align: top;
+}
+.recharge_rule_item .one .icon {
+    font-size: 24rpx;
+    color: #666;
+}
+.recharge_rule_item .two {
+    font-size: 28rpx;
+}

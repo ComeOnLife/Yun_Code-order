@@ -1,0 +1,132 @@
+<!-- <view class='page-container-classname'> -->
+                <view class='class-view' >
+  <view class='class-content'>
+    <view class='comm left_view'>
+      <view class="cell-left {{currentTab == index ? 'select' : ''}}" a:for='{{productList}}' a:key='{{key}}' data-index='{{index}}' ref-numbers='{{productList}}' onTap="{{ currentTab != index ? 'leftNavBarClick' : ''}}">
+        {{item.name}}        <view a:if='{{item.totalSelectNumber > 0}}' class='comm leftItemNumber'>
+          <text>
+            {{item.totalSelectNumber}}          </text>
+        </view>
+      </view>
+    </view>    <scroll-view class='class-right-scrollView' scroll-y='true'>
+      <view class='cell-right' a:for='{{selectClassifyList}}' a:key='{{key}}' ref-numbers='{{selectClassifyList}}'>
+        <view class='comm cell-imageView'>
+          <image data-url='{{item.icon}}' lazy-load='true' mode='aspectFill' src="{{item.icon ? item.icon : '/image/defaultImage.png'}}" onTap='previewImage'>
+          </image>
+        </view>
+        <view class='comm cell-right-contentView'>
+          <text class='contentView-title'>
+            {{item.name}}          </text>          <view class='contentView-des'>
+            {{item.description}}
+          </view>
+          <view class='priceLabel'>
+            <text>
+              ¥{{item.price}}            </text>
+          </view>          <view class='comm addShopCartView'>
+            <view a:if='{{item.stock > 0}}' class='comm shopCellRightView'>
+              <view a:if='{{item.number > 0}}' data-item='{{item}}' class='comm opationBut' onTap='cartReduceShop'>
+                <image src='/image/reduce_icon.png'>
+                </image>
+              </view>
+              <view a:if='{{item.number > 0}}' class='numberLable'>
+                {{item.number}}
+              </view>
+              <view data-item='{{item}}' class='comm opationBut' onTap='addCart'>
+                <image src='/image/add_icon.png'>
+                </image>
+              </view>
+            </view>
+            <view a:else  class='stockZero'>
+              售罄
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>  <view class='comm topView'>
+    <view class='comm topLeftView' onTap='gotoHome'>
+      <image mode='aspectFit' src='/image/goHome.png'>
+      </image>
+      <text>
+        返回首页      </text>
+    </view>    <view class='topRightLabel'>
+      桌位号: {{tableNoStr}}
+    </view>
+  </view>  <view class='comm bottomToolView'>
+    <view class='comm bottomPriceLabel'>
+      <text>
+        ¥{{totalPrice}}      </text>
+    </view>    <view class="comm PlaceOrderView {{totalNumber > 0 ? '':'default'}}" onTap='placeOrder'>
+      下单
+    </view>
+  </view>  <view class='comm shopCartView' onTap='showShopList'>
+    <image src="/image/{{totalNumber > 0 ? 'cart_blue' : 'cart_grade'}}.png">
+    </image>
+    <view a:if='{{totalNumber > 0}}' class='shopNumber'>
+      {{totalNumber}}
+    </view>
+  </view>
+  <!-- <view class='addclass' a:if='{{isShow}}'>
+    <view class='add_a'>
+      <view class='add_c'>
+        <view class='add_c_qu' hover-class='hover_c_qu' onTap='addCancel'>
+          取消
+        </view>
+        <view class='add_c_ren'>
+          请选择用餐人数
+        </view>
+        <view class='add_c_que' hover-class='hover_c_que' onTap='addDetermine'>
+          确定
+        </view>
+      </view>
+      <view class='add_d'>
+        <view class='add_1 {{classInfo == index ? "info": ""}}' a:for='{{arry}}' id='{{index}}' a:key='{{index}}' ref-numbers='{{arry}}' onTap='addBind'>
+          {{item}}
+        </view>
+      </view>
+    </view>
+  </view>
+              </view> -->
+<!-- </view> -->
+<view a:if='{{!hiddenPop}}' disable-scroll="true">
+  <van-popup show='{{showShopCart}}'  custom-style='height:0rpx;width:100%;' _parent_ref="{{isMounted}}" onClose='onClose' onChildRef='saveChildRef1'>
+    <view onTap='onClose' class="closeTap">
+    </view>
+    <view class='comm goodsListView abc' catchTouchMove='true'>
+      <view class='comm goodsListHeadView'>
+        <view class='comm headLeftView'>
+          <view>
+          </view>
+          <text class='headViewText'>
+            购物车          </text>
+        </view>        <view class='comm headRightView'>
+          <image mode='aspectFit' src='/image/del_icon.png'>
+          </image>
+          <text class='headViewText' onTap='emptyShopCart'>
+            清空          </text>
+        </view>
+      </view>      
+      <scroll-view scroll-y=true class='comm shopTableView'>
+        <view class='comm shopCell' a:for='{{shopCartList}}' a:key='{{key}}' ref-numbers='{{shopCartList}}'>
+          <text class='headViewText'>
+            {{item.name}}          </text>          <view class='comm shopCellRightView'>
+            <view class='priceLabel shopCart'>
+              <text>
+                ¥{{item.price}}              </text>
+            </view>            <view data-item='{{item}}' class='comm opationBut' onTap='cartReduceShop'>
+              <image src='/image/reduce_icon.png'>
+              </image>
+            </view>
+            <view class='numberLable'>
+              {{item.number}}
+            </view>
+            <view data-item='{{item}}' class='comm opationBut' onTap='addCart'>
+              <image src='/image/add_icon.png'>
+              </image>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </van-popup>>
+</view>

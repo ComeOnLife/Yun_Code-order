@@ -1,0 +1,49 @@
+<view class='page-container-classname'>
+                <view class='paidui_shop' onChildRef='saveChildRef0'>
+  预约门店：{{shop.title}}
+</view><view class='jieguo_body'>
+  <view class='text'>
+    预约到店时间
+  </view>
+  <view class='number'>
+    <view class='number_body'>
+      <view class='number_body_text'>
+        {{yuyuezhuowei.daodianshijian}}
+      </view>
+      <view class='tag_wrap'>
+        <van-tag class='tag' type='primary' a:if='{{yuyuezhuowei.status==1}}' _parent_ref="{{isMounted}}" onChildRef='saveChildRef1'>
+          已到店
+        </van-tag>
+        <van-tag class='tag' type='primary' a:if='{{yuyuezhuowei.status==2}}' _parent_ref="{{isMounted}}" onChildRef='saveChildRef2'>
+          待处理
+        </van-tag>
+        <van-tag class='tag' type='primary' a:if='{{yuyuezhuowei.status==3}}' _parent_ref="{{isMounted}}" onChildRef='saveChildRef3'>
+          预约成功
+        </van-tag>
+        <van-tag class='tag' a:if='{{yuyuezhuowei.status==9}}' _parent_ref="{{isMounted}}" onChildRef='saveChildRef4'>
+          已取消
+        </van-tag>
+      </view>
+    </view>
+  </view>
+  <view class='tip'>
+    用餐人数 {{yuyuezhuowei.tables_type_title}}
+  </view>
+  <view class='jieguo_area'>
+    <van-button type='default' a:if='{{yuyuezhuowei.status==2}}' _parent_ref="{{isMounted}}" onClick='apiYuyuezhuoweiDeleted' onChildRef='saveChildRef5'>
+      取消预约
+    </van-button>
+  </view>
+  <view class='wenxin_tip'>
+    <view>
+      预约说明：预约仅限当天有效
+    </view>
+    <view>
+      预约成功与否与前台回复为准
+    </view>
+    <view>
+      请提前10分钟到店，超时5分钟，预约失效
+    </view>
+  </view>
+</view>
+            </view>

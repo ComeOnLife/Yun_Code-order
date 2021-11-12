@@ -1,0 +1,305 @@
+<view class='page-container-classname'>
+                <import src='../common/userInform.axml' onChildRef='saveChildRef0'>
+</import><import src='../common/product_list.axml'>
+</import><import src='../common/addressItem.axml'>
+</import><import src='../common/foot.axml'>
+</import><view class='top_tip' a:if='{{orders.closed}}'>
+  <text class='redColor'>
+    订单已关闭，购买请重新下单  </text>
+</view><block a:else >
+  <block a:if='{{orders.status == 0}}'>
+    <block a:if='{{orders.takeaway==1}}'>
+      <view class='top_tip'>
+        <text class='redColor' a:if='{{orders.take_own==0}}'>
+          您的订单未付款，支付后才会配送        </text>        <text class='redColor' a:if='{{orders.take_own==1}}'>
+          您的订单未付款，支付后才能取餐        </text>
+      </view>
+    </block>    <block a:else >
+      <view class='top_tip' a:if='{{orders.appointment==1}}'>
+        <text class='redColor' a:if='{{orders.take_own==0}}'>
+          您的订单未付款，支付后才能预约        </text>
+      </view>
+    </block>
+  </block>  <block a:if='{{orders.status == 1}}'>
+    <view class='top_tip' a:if='{{orders.takeaway==1}}'>
+      <text class='redColor' a:if='{{orders.take_own==0}}'>
+        等待接单，请耐心等待      </text>      <text class='redColor' a:if='{{orders.take_own==1}}'>
+        创建自提订单成功，请准时取餐      </text>
+    </view>
+  </block>  <block a:if='{{orders.status == 2}}'>
+    <view class='top_tip'>
+      <text class='redColor'>
+        商家正在安排配送，请耐心等待      </text>
+    </view>
+  </block>  <block a:if='{{orders.status == 3}}'>
+    <view class='top_tip'>
+      <text class='redColor'>
+        商家已安排配送，请耐心等待      </text>
+    </view>
+  </block>
+</block><view class='page'>
+  <block a:if='{{orders.takeaway==0}}'>
+    <block a:if='{{orders.appointment==1}}'>
+      <template is='addressItem' data='{{take_name:orders.take_name,take_mobile:orders.take_mobile,appointment:orders.appointment,take_date:orders.take_date,take_own:1}}'>
+      </template>
+    </block>
+    <block a:else >
+      <view class='page_header'>
+        <template is='userInform' data='{{userInfo:userInfo,baseUrl:baseUrl,showRight:showRight,tables:tables,ordersStatus:orders.status,tableIndex:tableIndex,tables_list:tables_list}}'>
+        </template>
+      </view>
+    </block>
+  </block>
+  <block a:else >
+    <template is='addressItem' data="{{take_name:orderDetaiModel.buyerName,take_mobile:orderDetaiModel.buyerPhone,take_address:orderDetaiModel.buyerAddress,take_date:orderDetaiModel.createTimeStr,take_own:'1'}}">
+    </template>
+    <!-- <view class='addsnacks' a:if='{{isSnacks}}' onTap='snackstop'>
+      <button class='addclass'>
+        加菜
+      </button>
+    </view> -->
+  </block>
+  <block a:if='{{orderDetaiModel.remark}}'>
+    <view class='weui-cells__title'>
+      菜品备注
+    </view>
+    <view class='beizhu_orders'>
+      <text>
+        {{orderDetaiModel.remark}}      </text>
+    </view>
+  </block>  <view class='weui-cells__title'>
+    菜品列表
+  </view>
+  <view class='order_list'>
+    <template is='orderMsg_product_list' data='{{dishes_list:orderDetaiModel.orderDetailList,baseUrl:baseUrl,orders:orders}}'>
+    </template>
+  </view>
+  <view class='weui-cells weui-cells_after-title fontsize32'>
+    <view class='weui-cell' a:if='{{orders.tableware_price}}'>
+      <view class='weui-cell__bd'>
+        餐具费
+      </view>
+      <view class='weui-cell__ft'>
+        +￥{{orders.tableware_price}}
+      </view>
+    </view>
+    <block a:if='{{orders.takeaway==0}}'>
+      <view class='weui-cell' a:if='{{orders.tables_price}}'>
+        <view class='weui-cell__bd'>
+          餐桌费
+        </view>
+        <view class='weui-cell__ft'>
+          +￥{{orders.tables_price}}
+        </view>
+      </view>
+    </block>
+    <block a:if='{{orders.takeaway==1}}'>
+      <view class='weui-cell' a:if='{{orders.take_own==0}}'>
+        <view class='weui-cell__bd'>
+          配送费
+        </view>
+        <view class='weui-cell__ft'>
+          +￥{{orders.takeaway_price}}
+        </view>
+      </view>
+    </block>
+    <view class='weui-cell'>
+      <view class='weui-cell__bd'>
+        餐位金额
+      </view>
+      <view class='weui-cell__ft'>
+        +￥{{feeSum}}
+      </view>
+    </view>
+    <view class='weui-cell'>
+      <view class='weui-cell__bd'>
+        菜品总额
+      </view>
+      <view class='weui-cell__ft'>
+        +￥{{orderDetaiModel.orderAmount}}
+      </view>
+    </view>
+    <view class='weui-cell'>
+      <view class='weui-cell__bd'>
+        结算金额
+      </view>
+      <view class='weui-cell__ft tip_color'>
+        ￥{{orderDetaiModel.closeMoney}}
+      </view>
+    </view>
+  </view>
+  <view class='weui-cells__title'>
+    订单信息
+  </view>
+  <view class='weui-cells weui-cells_after-title fontsize32'>
+    <view class='weui-cell' a:if='{{orderDetaiModel.closed}}'>
+      <view class='weui-cell__bd'>
+        订单状态
+      </view>
+      <view class='weui-cell__ft tip_color'>
+        订单已关闭
+      </view>
+    </view>
+    <block a:else >
+      <view class='weui-cell'>
+        <view class='weui-cell__bd'>
+          订单状态
+        </view>
+        <view class='weui-cell__ft tip_color'>
+          {{orderDetaiModel.payStatus}}
+        </view>
+      </view>
+    </block>
+    <view class='weui-cell' a:if='{{orders.payment == 0}}'>
+      <view class='weui-cell__bd'>
+        支付方式
+      </view>
+      <view class='weui-cell__ft'>
+        会员
+      </view>
+    </view>
+    <view class='weui-cell' a:if='{{orders.payment == 1}}'>
+      <view class='weui-cell__bd'>
+        支付方式
+      </view>
+      <view class='weui-cell__ft'>
+        微信
+      </view>
+    </view>
+    <view class='weui-cell' a:if='{{orders.payment == 2}}'>
+      <view class='weui-cell__bd'>
+        支付方式
+      </view>
+      <view class='weui-cell__ft'>
+        支付宝
+      </view>
+    </view>
+    <view class='weui-cell' a:if='{{orders.payment == 3}}'>
+      <view class='weui-cell__bd'>
+        支付方式
+      </view>
+      <view class='weui-cell__ft'>
+        现金
+      </view>
+    </view>
+    <view class='weui-cell' a:if='{{orders.payment == 4}}'>
+      <view class='weui-cell__bd'>
+        支付方式
+      </view>
+      <view class='weui-cell__ft'>
+        小程序支付
+      </view>
+    </view>
+    <view class='weui-cell' a:if='{{orders.payment == 5}}'>
+      <view class='weui-cell__bd'>
+        支付方式
+      </view>
+      <view class='weui-cell__ft'>
+        POS支付
+      </view>
+    </view>
+    <view class='weui-cell'>
+      <view class='weui-cell__bd'>
+        订单编号
+      </view>
+      <view class='weui-cell__ft'>
+        {{orderDetaiModel.orderId}}
+      </view>
+    </view>
+    <view class='weui-cell'>
+      <view class='weui-cell__bd'>
+        下单时间
+      </view>
+      <view class='weui-cell__ft'>
+        {{orderDetaiModel.createTimeStr}}
+      </view>
+    </view>
+    <block a:if='{{orders.payment_date}}'>
+      <view class='weui-cell'>
+        <view class='weui-cell__bd'>
+          付款时间
+        </view>
+        <view class='weui-cell__ft'>
+          {{orders.payment_date}}
+        </view>
+      </view>
+    </block>
+  </view>
+  <block a:if='{{orderDetaiModel.status==0}}'>
+    <block a:if='{{orders.takeaway==0}}'>
+      <block a:if='{{orders.status==0}}'>
+        <view class='cart_bottom cart_bottom_white'>
+          <view class='cart_bottom_content cart-leftnone'>
+            <view class='cart_total_price_wrap'>
+              <view class='cart_total_price'>
+                <text class='tip'>
+                  总计:                </text>                <text class='price'>
+                  ￥{{orders.grand_total}}                </text>
+              </view>
+            </view>            <view class='cart_bottom_right btn right_two' a:if='{{orders.appointment!=1}}' onTap='checkJiacan'>
+              <text>
+                加菜              </text>
+            </view>            <view class='cart_bottom_right btn'>
+              <navigator url='/pages/wxpay/wxpay?oid={{orders.id}}'>
+                <text>
+                  立即支付                </text>
+              </navigator>
+            </view>
+          </view>
+        </view>
+      </block>      <block a:if='{{orders.status==1}}'>
+        <block a:if='{{orders.appointment==1}}'>
+          <view class='cart_bottom cart_bottom_white'>
+            <view class='cart_bottom_content cart-leftnone'>
+              <view class='cart_total_price_wrap'>
+                <view class='cart_total_price'>
+                  <text class='tip'>
+                    总计:                  </text>                  <text class='price'>
+                    ￥{{orders.grand_total}}                  </text>
+                </view>
+              </view>              <view class='cart_bottom_right btn btn-color-hui' data-tel='{{shop.service}}' onTap='callTel'>
+                <text>
+                  取消订单                </text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </block>
+    </block>    <block a:else >
+      <block a:if='{{orderDetaiModel.status==0}}'>
+        <view class='cart_bottom cart_bottom_white'>
+          <view class='cart_bottom_content cart-leftnone'>
+            <view class='cart_total_price_wrap'>
+              <view class='cart_total_price'>
+                <text class='tip'>
+                  结算金额:                </text>                <text class='price'>
+                  ￥{{orderDetaiModel.closeMoney}}                </text>
+              </view>
+            </view>            <view class='cart_bottom_right btn' onTap='payNow'>
+              <text>
+                立即支付              </text>
+            </view>
+          </view>
+        </view>
+      </block>      <block a:if='{{orders.status==1 || orders.status==2}}'>
+        <view class='cart_bottom cart_bottom_white'>
+          <view class='cart_bottom_content cart-leftnone'>
+            <view class='cart_total_price_wrap'>
+              <view class='cart_total_price'>
+                <text class='tip'>
+                  总计:                </text>                <text class='price'>
+                  ￥{{orders.closeMoney}}                </text>
+              </view>
+            </view>            <view class='cart_bottom_right btn btn-color-hui' data-tel='{{shop.service}}' onTap='callTel'>
+              <text>
+                取消订单              </text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+  </block>
+</view><template is='foot'>
+</template><view class='jiange100'>
+</view>
+            </view>

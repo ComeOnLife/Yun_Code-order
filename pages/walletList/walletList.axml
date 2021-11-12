@@ -1,0 +1,43 @@
+<view class='page-container-classname'>
+                <view class='page' onChildRef='saveChildRef0'>
+  <block a:if="{{urlFlage=='log'}}">
+    <view class='log_list'>
+      <block a:for='{{list}}' a:key=" " ref-numbers='{{list}}'>
+        <view class='log_item'>
+          <view class='left'>
+            <view class='one'>
+              <text>
+                {{item.content_1 || item.content}}              </text>
+            </view>            <view class='two'>
+              <text>
+                {{item.create_date}}              </text>
+            </view>
+          </view>          <view class='right'>
+            <text>
+              ￥{{item.account}}            </text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>  <block a:if="{{urlFlage=='charge'}}">
+    <view class='log_list'>
+      <block a:for='{{list}}' a:key=" " ref-numbers='{{list}}'>
+        <view class='log_item'>
+          <view class='left'>
+            <view class='one'>
+              <text>
+                {{item.content_1 || item.content}}              </text>
+            </view>            <view class='two'>
+              <text>
+                {{item.create_date}}              </text>
+            </view>
+          </view>          <view class='right'>
+            <text>
+              ￥{{item.account_3}}            </text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+</view>
+            </view>

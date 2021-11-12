@@ -1,0 +1,8 @@
+{
+	"usingComponents": {
+		"van-button": "/dist/button/index",
+		"van-tag": "/dist/tag/index"
+	},
+	"pullRefresh": true,
+	"defaultTitle": "我的预约桌位"
+}

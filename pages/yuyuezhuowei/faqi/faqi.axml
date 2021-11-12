@@ -1,0 +1,44 @@
+<view class='page-container-classname'>
+                <view class='paidui_shop' onChildRef='saveChildRef0'>
+  预约门店：{{shop.title}}
+</view><view class='paidui_body'>
+  <view class='paidui_body_title'>
+    <text class='number'>
+      1    </text>    <text>
+      请选择就餐人数    </text>
+  </view>  <view class='paidui_body_list'>
+    <view class="paidui_body_list_item {{ttid==item.id?'cur':''}}" a:for='{{tables_type_list}}' a:key='{{id}}' data-id='{{item.id}}' ref-numbers='{{tables_type_list}}' onTap='chooseItemFunc'>
+      <view class='paidui_body_list_item_t'>
+        {{item.title}}
+      </view>
+    </view>
+  </view>
+  <view class='paidui_body_title'>
+    <text class='number'>
+      2    </text>    <text>
+      选择就餐时间    </text>
+  </view>  <view class='paidui_body_list'>
+    <view class="paidui_body_list_item paidui_body_list_item_new {{yrid==item.id?'cur':''}}" a:for='{{yuyuezhuowei_rule_list}}' a:key='{{id}}' data-id='{{item.id}}' ref-numbers='{{yuyuezhuowei_rule_list}}' onTap='chooseTimeFunc'>
+      <view class='paidui_body_list_item_t'>
+        {{item.daodianshijian}}
+      </view>
+    </view>
+  </view>
+  <view class='wenxin_tip'>
+    <view>
+      预约说明：预约仅限当天有效
+    </view>
+    <view>
+      预约成功与否与前台回复为准
+    </view>
+    <view>
+      请提前10分钟到店，超时5分钟，预约失效
+    </view>
+  </view>
+  <view class='btn_area'>
+    <van-button type='info' loading='{{lock?true:false}}' disabled='{{lock?true:false}}' block=" " _parent_ref="{{isMounted}}" onTap='apiYuyuezhuoweiSave' onChildRef='saveChildRef1'>
+      保存
+    </van-button>
+  </view>
+</view>
+            </view>

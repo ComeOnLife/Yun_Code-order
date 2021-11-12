@@ -1,0 +1,22 @@
+/* pages/member/member.wxss */
+page {
+    width: 100%;
+}
+.phoneView {
+    position: relative;
+}
+
+.phone-button {
+    position: absolute;
+    top: 0rpx;
+    left: 0rpx;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+}
+
+.headImageView {
+    width: 100%;
+    height: 500rpx;
+}

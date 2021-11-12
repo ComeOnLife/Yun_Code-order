@@ -1,0 +1,33 @@
+<view class='page-container-classname'>
+                <view class='paidui_shop' onChildRef='saveChildRef0'>
+  排队门店：{{shop.title}}
+</view><view class='paidui_body'>
+  <view class='paidui_body_title'>
+    请选择就餐人数
+  </view>
+  <view class='select_box'>
+    <view class='select' catchTap='selectTap'>
+      <text class='select_text'>
+        {{selectData[index]}}      </text>      <image class='select_img {{show&&"select_img_rotate"}}' src='/image/gobottom.png'>
+      </image>
+    </view>    <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+      <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' a:for='{{selectData}}' a:key='{{this}}' data-index='{{index}}' ref-numbers='{{selectData}}' catchTap='optionTap'>
+        {{item}}      </text>
+    </view>
+  </view>  <view class='paidui_body_list'>
+    <view class="paidui_body_list_item {{curId==item.id?'cur':''}}" a:for='{{list}}' a:key='{{id}}' data-id='{{item.id}}' ref-numbers='{{list}}' onTap='chooseItemFunc'>
+      <view class='paidui_body_list_item_t'>
+        {{item.title}}
+      </view>
+      <view class='paidui_body_list_item_n'>
+        前面还有{{item.number}}人
+      </view>
+    </view>
+  </view>
+  <view class='btn_area'>
+    <van-button type='info' loading='{{lock?true:false}}' disabled='{{lock?true:false}}' block=" " _parent_ref="{{isMounted}}" onTap='apiPaiduiSave' onChildRef='saveChildRef1'>
+      确认排队
+    </van-button>
+  </view>
+</view>
+            </view>

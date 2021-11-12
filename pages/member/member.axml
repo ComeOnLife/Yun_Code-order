@@ -1,0 +1,85 @@
+<view class='page-container-classname'>
+                <image class='headImageView' src='http://res.ydongj.com/img/vip_card.png' onChildRef='saveChildRef0'>
+</image><view a:if='{{loadFinsh}}' class='weui-cells weui-cells_after-title'>
+  <view class='weui-cell weui-cell_input'>
+    <view class='weui-cell__hd'>
+      <view class='weui-label'>
+        姓名
+      </view>
+    </view>
+    <view class='weui-cell__bd'>
+      <input disabled='{{memberUser}}' class='weui-input' data-key='name' value='{{name}}' placeholder='请输入姓名' onInput='bindKeyInput'>
+      </input>
+    </view>
+  </view>
+  <view class='weui-cell weui-cell_input'>
+    <view class='weui-cell__hd'>
+      <view class='weui-label'>
+        手机
+      </view>
+    </view>
+    <view class='weui-cell__bd'>
+      <input disabled='{{memberUser}}' class='weui-input' data-key='phone' value='{{phone}}' placeholder='请输入手机号' onInput='bindKeyInput'>
+      </input>
+    </view>
+  </view>
+  <block a:if='{{memberUser}}'>
+    <view class='weui-cell weui-cell_input'>
+      <view class='weui-cell__hd'>
+        <view class='weui-label'>
+          生日
+        </view>
+      </view>
+      <view class='weui-cell__bd'>
+        <input disabled='{{memberUser}}' class='weui-input' value='{{birthday}}' placeholder=" ">
+        </input>
+      </view>
+    </view>
+    <view class='weui-cell weui-cell_input'>
+      <view class='weui-cell__hd'>
+        <view class='weui-label'>
+          性别
+        </view>
+      </view>
+      <view class='weui-cell__bd'>
+        <input disabled='{{memberUser}}' class='weui-input' value='{{gender}}' placeholder=" ">
+        </input>
+      </view>
+    </view>
+  </block>
+  <block a:if='{{!memberUser}}'>
+    <view class='weui-cell weui-cell_select'>
+      <view class='weui-cell__hd weui-cell__hd_in-select-after'>
+        <view class='weui-label'>
+          生日
+        </view>
+      </view>
+      <view class='weui-cell__bd'>
+        <picker mode='date' value='{{birthday}}' onChange='bindBirthdayChange'>
+          <view class='weui-select weui-select_in-select-after'>
+            {{birthday}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='weui-cell weui-cell_select'>
+      <view class='weui-cell__hd weui-cell__hd_in-select-after'>
+        <view class='weui-label'>
+          性别
+        </view>
+      </view>
+      <view class='weui-cell__bd'>
+        <picker mode='selector' range='{{genderList}}' value='{{gender}}' onChange='bindGenderChange'>
+          <view class='weui-select weui-select_in-select-after'>
+            {{gender}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  </block>
+</view><view a:if='{{loadFinsh && !memberUser}}' class='weui-btn-area'>
+  <button class='weui-btn primary-style' type='primary' onTap='registerMember'>
+    成为会员
+  </button>
+</view>
+            </view>

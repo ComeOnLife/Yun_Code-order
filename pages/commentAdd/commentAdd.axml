@@ -1,0 +1,40 @@
+<view class='page-container-classname'>
+                <import-sjs onChildRef='saveChildRef0' from='../temp/imageF.sjs' name='imageF'>
+</import-sjs><view class='addComment'>
+  <view class='addComment_content'>
+    <view class='weui-cells weui-cells_after-title'>
+      <view class='weui-cell'>
+        <view class='weui-cell__bd'>
+          <textarea class='weui-textarea' placeholder='输入评价' style='height: 4em' onInput='textVal'>
+          </textarea>
+        </view>
+      </view>
+      <view class='weui-cell'>
+        <view class='weui-cell__bd'>
+          <view class='weui-uploader'>
+            <view class='weui-uploader__bd'>
+              <view class='weui-uploader__files' id='uploaderFiles'>
+                <block a:for='{{files}}' a:key='{{*this}}' ref-numbers='{{files}}'>
+                  <view class='weui-uploader__file' data-src='{{baseUrl +item}}' onTap='previewImage'>
+                    <image class='weui-uploader__img' src='{{imageF.filterFunc(item,baseUrl,400,400)}}' mode='aspectFill'>
+                    </image>
+                  </view>
+                </block>
+              </view>
+              <view class='weui-uploader__input-box'>
+                <view class='weui-uploader__input' onTap='chooseImage'>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='page__bd page__bd_spacing'>
+      <button class='weui-btn primary-style' type='primary' onTap='submitComment'>
+        提交
+      </button>
+    </view>
+  </view>
+</view>
+            </view>

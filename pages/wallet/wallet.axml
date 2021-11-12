@@ -1,0 +1,47 @@
+<view class='page-container-classname'>
+                <view class='page' onChildRef='saveChildRef0'>
+  <view class='wallet_top'>
+    <view class='wallet_top_title'>
+      <text>
+        总余额      </text>
+    </view>    <view class='wallet_top_num'>
+      <text>
+        {{user.account}}      </text>
+    </view>
+  </view>  <view class='weui-panel user_panel'>
+    <view class='weui-panel__bd'>
+      <view class='weui-media-box weui-media-box_small-appmsg'>
+        <view class='weui-cells weui-cells_in-small-appmsg'>
+          <navigator url='/pages/recharge/recharge' class='weui-cell weui-cell_access' hover-class='weui-cell_active'>
+            <view class='weui-cell__bd weui-cell_primary'>
+              <view>
+                立即充值
+              </view>
+            </view>
+            <view class='weui-cell__ft weui-cell__ft_in-access'>
+            </view>
+          </navigator>
+          <navigator url='/pages/walletList/walletList?url=charge' class='weui-cell weui-cell_access' hover-class='weui-cell_active'>
+            <view class='weui-cell__bd weui-cell_primary'>
+              <view>
+                充值记录
+              </view>
+            </view>
+            <view class='weui-cell__ft weui-cell__ft_in-access'>
+            </view>
+          </navigator>
+          <navigator url='/pages/walletList/walletList?url=log' class='weui-cell weui-cell_access' hover-class='weui-cell_active'>
+            <view class='weui-cell__bd weui-cell_primary'>
+              <view>
+                钱包明细
+              </view>
+            </view>
+            <view class='weui-cell__ft weui-cell__ft_in-access'>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+            </view>

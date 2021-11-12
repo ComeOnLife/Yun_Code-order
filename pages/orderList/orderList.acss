@@ -1,0 +1,66 @@
+/* pages/orderList/orderList.wxss */
+.tab {
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    line-height: 100rpx;
+    background: #fff;
+    font-size: 36rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+}
+scroll-view {
+    background: #fff;
+}
+.tab_content {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.tab_content .tab_item {
+    display: block;
+    flex-shrink: 0;
+    padding: 0 24rpx;
+}
+.select {
+    color: #0097ff;
+    border-bottom: 5rpx solid #0097ff;
+}
+.selectnot {
+    color: #787878;
+}
+.fenge {
+    height: 100rpx;
+}
+.orderList_item {
+    background: #fff;
+    margin-top: 20rpx;
+    border-top: 1rpx #eaeaea solid;
+    border-bottom: 1rpx #eaeaea solid;
+}
+.orderList_item .top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 32rpx;
+    padding: 20rpx 30rpx;
+    border-bottom: 1px #eee solid;
+    color: #999;
+}
+.order_middle_content {
+    padding: 20rpx 30rpx 0;
+}
+.order_middle_item {
+    width: 100%;
+    flex-shrink: 0;
+    font-size: 32rpx;
+    margin-bottom: 20rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.order_middle_item .left {
+    width: 60%;
+}
+.order_middle_item text:first-child {
+    margin-right: 5px;
+}

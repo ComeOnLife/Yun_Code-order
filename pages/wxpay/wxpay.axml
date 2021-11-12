@@ -1,0 +1,122 @@
+<view class='page-container-classname'>
+                <view class='page' onChildRef='saveChildRef0'>
+  <view a:if='{{showPayMethod}}' class='payMethod'>
+    <view class='payMethod_top'>
+      <view class='title'>
+        <image mode='aspectFit' src='/image/pay_icon.png'>
+        </image>
+        <text>
+          支付方式        </text>
+      </view>
+    </view>    <view class='payMethod_bottom'>
+      <view class='payMethod_item {{accountPayCur}}' data-method='{{0}}' onTap='toggleMethod'>
+        <text>
+          会员支付        </text>
+      </view>      <view class='payMethod_item {{wxPayCur}}' data-method='{{1}}' onTap='toggleMethod'>
+        <text>
+          微信支付        </text>
+      </view>
+    </view>    <view class='payMethod_tip' a:if='{{payMethod}}'>
+    </view>
+    <view class='payMethod_tip' a:else >
+      <text>
+        用户余额: ￥{{user.account}}      </text>
+    </view>
+  </view>  <view class='weui-cells__title'>
+    订单信息
+  </view>
+  <view class='weui-cells weui-cells_after-title'>
+    <view class='weui-cell'>
+      <view class='weui-cell__bd'>
+        订单创建时间
+      </view>
+      <view class='weui-cell__ft'>
+        {{orders.create_date}}
+      </view>
+    </view>
+    <view class='weui-cell'>
+      <view class='weui-cell__bd'>
+        用餐人数
+      </view>
+      <view class='weui-cell__ft'>
+        {{orders.user_number}}
+      </view>
+    </view>
+    <block a:if='{{orders.takeaway==1}}'>
+      <block a:if='{{orders.take_own==0}}'>
+        <view class='weui-cell'>
+          <view class='weui-cell__bd'>
+            配送费
+          </view>
+          <view class='weui-cell__ft '>
+            +￥{{orders.takeaway_price}}
+          </view>
+        </view>
+      </block>
+    </block>
+    <view class='weui-cell' a:if='{{orders.tableware_price}}'>
+      <view class='weui-cell__bd'>
+        餐具费
+      </view>
+      <view class='weui-cell__ft'>
+        +￥{{orders.tableware_price}}
+      </view>
+    </view>
+    <block a:if='{{orders.takeaway==0}}'>
+      <view class='weui-cell'>
+        <view class='weui-cell__bd'>
+          餐桌费
+        </view>
+        <view class='weui-cell__ft'>
+          +￥{{orders.tables_price}}
+        </view>
+      </view>
+    </block>
+    <view class='weui-cell'>
+      <view class='weui-cell__bd'>
+        满减优惠
+      </view>
+      <view class='weui-cell__ft'>
+        -￥{{orders.coupon_saving}}
+      </view>
+    </view>
+    <view class='weui-cell'>
+      <view class='weui-cell__bd'>
+        商品小计
+      </view>
+      <view class='weui-cell__ft'>
+        ￥{{orders.subtotal}}
+      </view>
+    </view>
+    <view class='weui-cell'>
+      <view class='weui-cell__bd'>
+        订单总计
+      </view>
+      <view class='weui-cell__ft tip_color'>
+        ￥{{orders.grand_total}}
+      </view>
+    </view>
+  </view>
+  <block a:if='{{payMethod==0}}'>
+    <view class='weui-btn-area'>
+      <button class='weui-btn primary-style' loading='{{lock?true:false}}' disabled='{{lock?true:false}}' type='primary' onTap='orderAccountPay'>
+        会员支付 ￥{{orders.grand_total}}
+      </button>
+    </view>
+  </block>
+  <block a:else >
+    <view class='weui-btn-area'>
+      <button class='weui-btn primary-style' loading='{{lock?true:false}}' disabled='{{lock?true:false}}' type='primary' onTap='orderWxPay'>
+        微信支付 ￥{{orders.grand_total}}
+      </button>
+    </view>
+    <view class='weui-btn-area'>
+      <button class='weui-btn default-style' type='default' onTap='orderDefault'>
+        其他支付方式(刷卡，支付宝)
+      </button>
+    </view>
+  </block>
+  <view class='jiange100'>
+  </view>
+</view>
+            </view>

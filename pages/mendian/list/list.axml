@@ -1,0 +1,32 @@
+<view class='page-container-classname'>
+                <view class='mendian_list' onChildRef='saveChildRef0'>
+  <view class='comm headView'>
+    <view class='comm headAddressView'>
+      <van-icon class='addressImg' name='location-o' color='#333' _parent_ref="{{isMounted}}" onChildRef='saveChildRef1'>
+      </van-icon>
+      {{address}}
+    </view>
+    <van-search class='headSearchView' value='{{ searchValue }}' shape='round' placeholder='请输入店铺名称' placeholder-style='font-size: 24rpx;' _parent_ref="{{isMounted}}" onSearch='onSearch' onClear='onClear' onChildRef='saveChildRef2'>
+    </van-search>
+  </view>
+  <view class='marginView'>
+  </view>
+  <view class='comm cell' a:for='{{list}}' a:key='{{id}}' data-item='{{item}}' ref-numbers='{{list}}' onTap='selectStore'>
+    <image src='{{item.qiniupath}}'>
+    </image>
+    <view class='comm cell-rightView'>
+      <view class='name'>
+        {{item.storesname}}
+      </view>
+      <view class='comm address'>
+        <van-icon class='addressImg' name='location-o' color='#666' _parent_ref="{{isMounted}}" onChildRef='saveChildRef3'>
+        </van-icon>
+        {{item.address}}
+      </view>
+      <van-tag plain=" " round=" " type='primary' _parent_ref="{{isMounted}}" onChildRef='saveChildRef4'>
+        距您{{item.distanceStr}}
+      </van-tag>
+    </view>
+  </view>
+</view>
+            </view>

@@ -1,0 +1,193 @@
+<view class='page-container-classname'>
+                <import-sjs onChildRef='saveChildRef0' from='../temp/imageF.sjs' name='imageF'>
+</import-sjs><import src='../common/userInform.axml'>
+</import><import src='../common/product_list.axml'>
+</import><import src='../common/foot.axml'>
+</import><import src='../common/comment.axml'>
+</import><view class='page'>
+  <image src='{{imageF.filterFunc(carousel_list[0].img_url,baseUrl,750)}}' class='index_img_bg' mode='widthFix'>
+  </image>
+  <view class='index_page_content'>
+    <view class='index_spwer'>
+      <swiper class='index_spwer_view' autoplay='true' interval='{{3000}}'>
+        <swiper-item>
+          <view>
+            <image mode='widthFix' src='{{storeItem.qiniupath}}' class='slide-image'>
+            </image>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class='shop_info'>
+      <view class='qiehuan_btn' onTap='gotoStoreList'>
+        <van-icon name='exchange' _parent_ref="{{isMounted}}" onChildRef='saveChildRef1'>
+        </van-icon>
+        <text>
+          切换门店        </text>
+      </view>      <view class='shop-name'>
+        <text>
+          {{storeItem.storesname}}        </text>
+      </view>      <block a:if='{{coupon_list.length>0}}'>
+        <view class='coupon_wrap'>
+          <scroll-view scroll-x='true' class='coupon_list_scroll'>
+            <view class='coupon_list_content'>
+              <view class='coupon_list_item coupon_list_item_text'>
+                满减
+              </view>
+              <view class='coupon_list_item' a:for='{{coupon_list}}' a:key='{{id}}' data-id='{{item.id}}' ref-numbers='{{coupon_list}}'>
+                <view class='coupon_list_item_content'>
+                  <view class='total_account'>
+                    <text class='text'>
+                      满                    </text>                    <text class='num'>
+                      {{item.total_account}}                    </text>                    <text class='text'>
+                      减                    </text>                    <text class='num'>
+                      {{item.derate_account}}                    </text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+      </block>      <view class='shop_desc_body'>
+        <view class='left'>
+          <view class='comm shop-desc shop-desc-right' onTap='navigationMap'>
+            <view class='comm'>
+              {{storeItem.address}}              <van-icon class='arrowIcon' name='arrow' color='#999' _parent_ref="{{isMounted}}" onChildRef='saveChildRef2'>
+              </van-icon>
+            </view>
+          </view>
+          <view class='shop-desc'>
+            <text>
+              距离您: {{storeItem.distanceStr}}            </text>
+          </view>
+        </view>        <view class='right'>
+          <view class='shop_desc_body_item' onTap='navigationMap'>
+            <image src='/image/daodian_icon.png' class='img'>
+            </image>
+            <view class='text'>
+              到店
+            </view>
+          </view>
+          <view class='shop_desc_body_item' data-tel='{{storeItem.phone}}' onTap='callTel'>
+            <image src='/image/phone_icon.png' class='img'>
+            </image>
+            <view class='text'>
+              联系商家
+            </view>
+          </view>
+        </view>
+      </view>      <view class='shop_desc_body'>
+        <view class='shop-desc'>
+          <text>
+            营业时间: {{storeItem.serviceTime}}          </text>
+        </view>
+      </view>
+    </view>    <view class='index_middle_btn'>
+      <block a:if='{{shop.paidui}}'>
+        <navigator url='/pages/paidui/faqi/faqi' class='index_middle_btn_item' a:if='{{!paidui}}'>
+          <van-icon name='bar-chart-o' _parent_ref="{{isMounted}}" onChildRef='saveChildRef3'>
+          </van-icon>
+          <text class='ml10'>
+            发起排队          </text>
+        </navigator>        <navigator url='/pages/paidui/jieguo/jieguo' class='index_middle_btn_item' a:else >
+          <van-icon name='bar-chart-o' _parent_ref="{{isMounted}}" onChildRef='saveChildRef4'>
+          </van-icon>
+          <text class='ml10'>
+            查看排队详情          </text>          <view class='number'>
+            前面还有{{paidui.number}}人
+          </view>
+        </navigator>
+      </block>      <block a:if='{{shop.yuyuezhuowei}}'>
+        <navigator url='/pages/yuyuezhuowei/faqi/faqi' class='index_middle_btn_item' a:if='{{!yuyuezhuowei}}'>
+          <van-icon name='underway-o' _parent_ref="{{isMounted}}" onChildRef='saveChildRef5'>
+          </van-icon>
+          <text class='ml10'>
+            预约座位          </text>
+        </navigator>        <navigator url='/pages/yuyuezhuowei/jieguo/jieguo' class='index_middle_btn_item' a:else >
+          <van-icon name='underway-o' _parent_ref="{{isMounted}}" onChildRef='saveChildRef6'>
+          </van-icon>
+          <text class='ml10'>
+            预约座位          </text>          <view class='number' a:if='{{yuyuezhuowei.status==2}}'>
+            预约桌位待商家处理
+          </view>
+          <view class='number' a:if='{{yuyuezhuowei.status==1}}'>
+            预约的桌位，您已到店
+          </view>
+          <view class='number' a:if='{{yuyuezhuowei.status==3}}'>
+            预约桌位已成功
+          </view>
+        </navigator>
+      </block>
+    </view>    <view class='plugin-icon__wrapper'>
+      <view class='plugin-icon__list'>
+        <view class='plugin-icon__item' onTap='scanning'>
+          <image src='/image/diancan_icon.png'>
+          </image>
+          <text>
+            扫码点餐          </text>
+        </view>        
+        <view class='plugin-icon__item' data-buytype='{{1}}' onTap='shopProductList'>
+          <image style='width: 100rpx;height: 100rpx;' src='/image/shitang.png'>
+          </image>
+          <text>
+            店内就餐          </text>
+        </view>        <view data-buytype='{{3}}' class='plugin-icon__item' onTap='shopProductList'>
+          <image src='/image/yuyue_icon.png'>
+          </image>
+          <text>
+            打包带走          </text>
+        </view>
+      </view>      <view class='plugin-icon__list'>
+        <view class='plugin-icon__item' onTap='sharePeople'>
+          <button open-type='share' class='sharePeople_btn'>
+          </button>
+          <image src='/image/tuijian_icon.png'>
+          </image>
+          <text>
+            推荐好友          </text>
+        </view>       
+         <view class='plugin-icon__item' onTap='navigationMap'>
+          <image src='/image/dili_icon.png'>
+          </image>
+          <text>
+            门店位置          </text>
+        </view>        <view class='plugin-icon__item' data-tel='{{storeItem.phone}}' onTap='callTel'>
+          <image src='/image/tel_icon.png'>
+          </image>
+          <text>
+            电话联系          </text>
+        </view>
+      </view>
+    </view>    <view a:if='{{false}}' class='extra-plugins__wrapper'>
+      <view class='card-split-line'>
+      </view>
+      <view class='plugin-wrapper'>
+        <navigator url='/pages/commentList/commentList' class='plugin-title-wrap'>
+          <text class='plugin-title'>
+            店铺评论          </text>          <view class='pull_rigth'>
+            <text>
+              {{totalRow}}条评论            </text>            <image class='right_icon' src='/image/right_icon.png'>
+            </image>
+          </view>
+        </navigator>        <view class='plugin-signs-recommend__list'>
+          <block a:for='{{commentList}}' a:key='{{id}}' ref-numbers='{{commentList}}'>
+            <block a:if='{{index<=2}}'>
+              <template is='comment_list' data='{{commentItem:item,baseUrl:baseUrl}}'>
+              </template>
+            </block>
+          </block>
+        </view>
+        <block a:if='{{commentList.length>0&&commentList.length>2}}'>
+          <navigator url='/pages/commentList/commentList'>
+            <view class='see_more_comment'>
+              <text>
+                查看更多评论              </text>              <image class='right_icon' src='/image/right_icon.png'>
+              </image>
+            </view>
+          </navigator>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+            </view>

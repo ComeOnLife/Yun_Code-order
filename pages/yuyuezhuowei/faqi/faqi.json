@@ -1,0 +1,4 @@
+{
+	"usingComponents": { "van-button": "/dist/button/index" },
+	"defaultTitle": "发起预约桌位"
+}

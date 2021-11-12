@@ -1,0 +1,12 @@
+/* pages/article/article.wxss */
+page {
+    background: #fff;
+}
+.about_title {
+    text-align: center;
+    padding: 30rpx 0;
+}
+.about_content {
+    padding: 20px;
+    font-size: 30rpx;
+}

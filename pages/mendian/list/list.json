@@ -1,0 +1,11 @@
+{
+	"usingComponents": {
+		"van-button": "/dist/button/index",
+		"van-tag": "/dist/tag/index",
+		"van-search": "/dist/search/index",
+		"van-icon": "/dist/icon/index"
+	},
+	"backgroundTextStyle": "dark",
+	"defaultTitle": "选择门店",
+	"pullRefresh": true
+}

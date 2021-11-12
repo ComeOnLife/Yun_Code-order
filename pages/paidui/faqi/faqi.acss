@@ -1,0 +1,115 @@
+/* pages/paidui/faqi/faqi.wxss */
+page {
+    background: #fff;
+}
+.paidui_body {
+    padding: 20rpx;
+}
+.paidui_shop {
+    color: #ed6a0c;
+    background-color: #fffbe8;
+    padding: 20rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    margin: 20rpx;
+    border-radius: 10rpx;
+}
+
+.paidui_body_list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: -10rpx;
+    margin-right: -10rpx;
+}
+.paidui_body_list_item {
+    width: 33.33333%;
+    text-align: center;
+    padding: 0 10rpx;
+    box-sizing: border-box;
+    margin-bottom: 30rpx;
+}
+.paidui_body_list_item.cur .paidui_body_list_item_t {
+    background: #38f;
+    color: #fff;
+}
+.paidui_body_list_item_t {
+    border: 1px #eee solid;
+    line-height: 1;
+    padding: 20rpx 10rpx;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+    font-weight: bold;
+    font-size: 28rpx;
+}
+.paidui_body_title {
+    font-size: 32rpx;
+    font-weight: bold;
+    padding: 20rpx 0;
+    text-align: center;
+    margin-bottom: 40rpx;
+}
+
+.paidui_body_list_item_n {
+    font-size: 24rpx;
+    color: #666;
+    margin-top: 5rpx;
+}
+
+.btn_area {
+    margin-top: 60rpx;
+}
+/* 新增就餐人数 */
+page {
+    background: #f3f7f7;
+}
+.select_box {
+    background: #fff;
+    width: 80%;
+    margin: 30rpx auto;
+    position: relative;
+    z-index: 1;
+}
+.select {
+    box-sizing: border-box;
+    width: 100%;
+    height: 70rpx;
+    border: 1px solid #efefef;
+    border-radius: 8rpx;
+    display: flex;
+    align-items: center;
+    padding: 0 20rpx;
+}
+.select_text {
+    font-size: 30rpx;
+    flex: 1;
+}
+.select_img {
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
+    transition: transform 0.3s;
+}
+.select_img_rotate {
+    transform: rotate(180deg);
+}
+.option_box {
+    position: absolute;
+    top: 70rpx;
+    width: 100%;
+    border: 1px solid #efefef;
+    box-sizing: border-box;
+    height: 0;
+    overflow-y: auto;
+    border-top: 0;
+    background: #fff;
+    transition: height 0.3s;
+}
+.option {
+    display: block;
+    line-height: 40rpx;
+    font-size: 30rpx;
+    border-bottom: 1px solid #efefef;
+    padding: 10rpx;
+}

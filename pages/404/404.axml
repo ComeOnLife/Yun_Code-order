@@ -1,0 +1,16 @@
+<view class='page-container-classname'>
+                <view class='status404' onChildRef='saveChildRef0'>
+  <view class='status404_content'>
+    <icon type='warn' size='{{80}}' class=' iconwarn-style 80-style'>
+    </icon>
+    <text>
+      页面出错了,返回首页试试    </text>
+  </view>  <view class='page__bd page__bd_spacing'>
+    <navigator url='/pages/index/index' open-type='reLaunch'>
+      <button class='weui-btn primary-style' type='primary'>
+        返回首页
+      </button>
+    </navigator>
+  </view>
+</view>
+            </view>

@@ -1,0 +1,10 @@
+{
+	"usingComponents": {
+		"van-popup": "/dist/popup/index",
+		"van-stepper": "/dist/stepper/index"
+	},
+	"backgroundTextStyle": "dark",
+	"navigationBarTextStyle": "white",
+	"defaultTitle": "购物车",
+	"titleBarColor": "#1A99FB"
+}

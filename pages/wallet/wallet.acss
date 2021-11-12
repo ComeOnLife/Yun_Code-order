@@ -1,0 +1,18 @@
+/* pages/wallet/wallet.wxss */
+.wallet_top {
+    background: #fff;
+    padding: 50rpx 30rpx;
+    text-align: center;
+}
+.wallet_top_title {
+    font-size: 24rpx;
+    color: #999;
+}
+.wallet_top_num {
+    font-size: 80rpx;
+    color: #ff6000;
+}
+.wallet_top_tip {
+    font-size: 24rpx;
+    color: #999;
+}

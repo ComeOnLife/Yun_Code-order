@@ -1,0 +1,4 @@
+<view class='page-container-classname'>
+                <text onChildRef='saveChildRef0'>
+  pages/takeOut/tabkeOut.wxml</text>
+            </view>

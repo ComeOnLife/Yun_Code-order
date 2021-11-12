@@ -1,0 +1,17 @@
+<view class='page-container-classname'>
+                <import src='../common/comment.axml' onChildRef='saveChildRef0'>
+</import><view class='page'>
+  <navigator url='/pages/commentAdd/commentAdd'>
+    <view class='comment_title'>
+      <text>
+        发布新评价      </text>      <image class='right_icon' src='/image/right_icon.png'>
+      </image>
+    </view>
+  </navigator>  <view class='commentList' a:if='{{commentList.length>0}}'>
+    <block a:for='{{commentList}}' a:key=" " ref-numbers='{{commentList}}'>
+      <template is='comment_list' data='{{commentItem:item,baseUrl:baseUrl}}'>
+      </template>
+    </block>
+  </view>
+</view>
+            </view>

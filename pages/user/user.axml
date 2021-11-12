@@ -1,0 +1,93 @@
+<view class='page-container-classname'>
+                <import-sjs onChildRef='saveChildRef0' from='../temp/imageF.sjs' name='imageF'>
+</import-sjs><import src='../common/userInform.axml'>
+</import><import src='../common/foot.axml'>
+</import><view class='page'>
+  <view class='page_header'>
+    <view class='user_inform_content' a:if="{{userInfo.name=='微信用户'}}">
+    </view>
+    <view class='user_inform_content' a:else >
+      <view class='comm userInfoView-avatar'>
+        <image mode="scaleToFill" src="{{avatar}}"/>
+      </view>
+      <view class='userInfoView-name'>
+        <text>{{nickName}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='weui-panel user_panel' onTap="{{phoneNumber ? 'memberInfo' : ''}}">
+    <view class='weui-panel__bd'>
+      <view class='weui-media-box weui-media-box_small-appmsg'>
+        <view class='weui-cells weui-cells_in-small-appmsg'>
+          <navigator class='weui-cell weui-cell_access' hover-class='weui-cell_active'>
+            <view class='weui-cell__hd'>
+              <image src='/image/about_icon.png'>
+              </image>
+            </view>
+            <view class='weui-cell__bd weui-cell_primary'>
+              <view>
+                会员
+              </view>
+            </view>
+            <view class='weui-cell__ft weui-cell__ft_in-access'>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+    <button a:if='{{phoneNumber.length == 0}}' class='phone-button' open-type='getAuthorize' onGetAuthorize='getPhoneNumber' scope='phoneNumber'>
+    </button>
+  </view>
+  <!-- <view class='weui-panel user_panel'>
+    <view class='weui-panel__bd'>
+      <view class='weui-media-box weui-media-box_small-appmsg'>
+        <view class='weui-cells weui-cells_in-small-appmsg'>
+          <navigator url='/pages/wallet/wallet?phoneNumber={{phoneNumber}}' class='weui-cell weui-cell_access' hover-class='weui-cell_active'>
+            <view class='weui-cell__hd'>
+              <image src='/image/youhui_icon.png'>
+              </image>
+            </view>
+            <view class='weui-cell__bd weui-cell_primary'>
+              <view>
+                我的钱包
+              </view>
+            </view>
+            <view class='weui-cell__ft weui-cell__ft_in-access'>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view> -->
+    <button a:if='{{phoneNumber.length == 0}}' class='phone-button' open-type='getAuthorize' onGetAuthorize='getPhoneNumber2' scope='phoneNumber'>
+    </button>
+  </view>
+  <view class='weui-panel user_panel'>
+    <view class='weui-panel__bd'>
+      <view class='weui-media-box weui-media-box_small-appmsg'>
+        <view class='weui-cells weui-cells_in-small-appmsg'>
+          <!-- <view class='weui-cell weui-cell_access' hover-class='weui-cell_active'>
+            <button open-type='contact' class='kefu_btn'>
+              客服
+            </button>
+            <view class='weui-cell__hd'>
+              <image src='/image/kefu_u_icon.png'>
+              </image>
+            </view>
+            <view class='weui-cell__bd weui-cell_primary'>
+              <view>
+                联系客服
+              </view>
+            </view>
+            <view class='weui-cell__ft weui-cell__ft_in-access'>
+            </view>
+          </view> -->
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style='height:20px'>
+  </view>
+  <template is='foot'>
+  </template>
+</view>
+            </view>

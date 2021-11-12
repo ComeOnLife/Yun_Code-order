@@ -1,0 +1,96 @@
+/* pages/yuyuezhuowei/faqi/faqi.wxss */
+page {
+    background: #fff;
+}
+.paidui_body {
+    padding: 20rpx;
+}
+.paidui_shop {
+    color: #ed6a0c;
+    background-color: #fffbe8;
+    padding: 20rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    margin: 20rpx;
+    border-radius: 10rpx;
+}
+
+.paidui_body_list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: -10rpx;
+    margin-right: -10rpx;
+}
+.paidui_body_list_item {
+    width: 33.33333%;
+    text-align: center;
+    padding: 0 10rpx;
+    box-sizing: border-box;
+    margin-bottom: 30rpx;
+}
+.paidui_body_list_item.cur .paidui_body_list_item_t {
+    background: #38f;
+    color: #fff;
+}
+.paidui_body_list_item_t {
+    border: 1px #eee solid;
+    line-height: 1;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+    font-weight: bold;
+    font-size: 28rpx;
+    white-space: nowrap;
+    padding: 20rpx 10rpx;
+}
+.paidui_body_title {
+    font-size: 32rpx;
+    font-weight: bold;
+    padding: 20rpx 0;
+    margin-bottom: 20rpx;
+    position: relative;
+    padding-left: 50rpx;
+}
+.paidui_body_title .number {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 40rpx;
+    height: 40rpx;
+    background: #000;
+    color: #fff;
+    display: block;
+    text-align: center;
+    line-height: 1;
+    border-radius: 1000px;
+    transform: translateY(-50%);
+    font-size: 22rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    font-weight: normal;
+}
+
+.paidui_body_list_item_n {
+    font-size: 24rpx;
+    color: #666;
+    margin-top: 5rpx;
+}
+
+.btn_area {
+    margin-top: 60rpx;
+}
+.paidui_body_list_item_new {
+    width: 20%;
+}
+
+.wenxin_tip {
+    background: #f0f0f0;
+    color: #222;
+    font-size: 24rpx;
+    padding: 20rpx;
+    border-radius: 10rpx;
+    margin-top: 30rpx;
+}

@@ -1,0 +1,40 @@
+<template name='addressItem' onChildRef='saveChildRef0'>
+  <view class='show_address_content {{showRight}}' hover-class='navigator-hover' onTap='updateAddress'>
+    <view class='icon'>
+      <block a:if='{{take_own==0}}'>
+        <image src='/image/dw_min_icon.png'>
+        </image>
+      </block>
+      <block a:else >
+        <image src='/image/time_min_icon.png'>
+        </image>
+      </block>
+    </view>
+    <view class='show_address_text'>
+      <view class='top'>
+        <block a:if='{{appointment}}'>
+          <text a:if='{{take_date}}'>
+            预约时间：{{take_date}}          </text>          <text a:else >
+            点击填写预约时间          </text>
+        </block>        <block a:else >
+          <block a:if='{{take_own==0}}'>
+            <text a:if='{{take_address}}'>
+              {{take_address}}            </text>            <text a:else >
+              点击填写收货地址            </text>
+          </block>          <block a:elif='{{take_own==1}}'>
+            <text a:if='{{take_date}}'>
+              下单时间：{{take_date}}            </text>            <text a:else >
+              点击填写自提时间            </text>
+          </block>          <block a:else >
+            <text>
+              请先选择配送方式            </text>
+          </block>
+        </block>
+      </view>      <view class='bottom'>
+        <text class='title'>
+          {{take_name}}        </text>        <text class='tel'>
+          {{take_mobile}}        </text>
+      </view>
+    </view>
+  </view>
+</template>

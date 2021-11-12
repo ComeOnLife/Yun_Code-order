@@ -1,0 +1,17 @@
+<view class='page-container-classname'>
+                <import src='../common/orderList.axml' onChildRef='saveChildRef0'>
+</import><import src='../common/foot.axml'>
+</import><view class='tab' a:for-index='idx'>
+  <scroll-view scroll-x=" " scroll-with-animation='true' scroll-into-view='item{{Inx}}'>
+    <view class='tab_content'>
+      <view id='item{{index}}' class="tab_item {{index ===  Inx? 'select' : 'selectnot'}}" a:for='{{tab}}' a:key='{{key}}' data-index='{{index}}' data-status='{{item.status}}' ref-numbers='{{tab}}' onTap='changeTab'>
+        {{item.name}}
+      </view>
+    </view>
+  </scroll-view>
+</view><view class='fenge'>
+</view><view class='order_list_wrap'>
+  <template is='orderList' data='{{orderList:orderList,baseUrl:baseUrl,openid:openid}}'>
+  </template>
+</view>
+            </view>

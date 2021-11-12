@@ -1,0 +1,23 @@
+<import-sjs onChildRef='saveChildRef0' from='../temp/imageF.sjs' name='imageF'>
+</import-sjs><template name='comment_list'>
+  <view class='comment_item'>
+    <view class='comment_item_top'>
+      <image src='{{imageF.filterFunc(commentItem.user_img_url,baseUrl,400,400)}}'>
+      </image>
+      <text>
+        {{commentItem.user_name}}      </text>
+    </view>    <view class='comment_item_middle' a:if='{{commentItem.content}}'>
+      <text>
+        {{commentItem.content}}      </text>
+    </view>    <view class='comment_item_bottom clearfix'>
+      <block a:for='{{commentItem.img_list}}' a:key='{{this}}' a:for-item='imgItem' ref-numbers='{{commentItem.img_list}}'>
+        <image src='{{imageF.filterFunc(imgItem,baseUrl,400,400)}}' data-src='{{imageF.filterFunc(imgItem,baseUrl,400,400)}}' data-list='{{commentItem.img_list}}' onTap='showCommentImg'>
+        </image>
+      </block>
+    </view>
+    <view class='comment_item_time'>
+      <text>
+        {{commentItem.create_date}}      </text>
+    </view>
+  </view>
+</template>

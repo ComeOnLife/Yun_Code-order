@@ -1,0 +1,20 @@
+<view class='page-container-classname'>
+                <view class='paidui_shop' onChildRef='saveChildRef0'>
+  排队门店：{{shop.title}}
+</view><view class='jieguo_body'>
+  <view class='text'>
+    您的号码是
+  </view>
+  <view class='number'>
+    {{paidui.code}}
+  </view>
+  <view class='tip'>
+    前面还有 {{paidui.number}}人排队
+  </view>
+  <view class='jieguo_area'>
+    <van-button type='default' _parent_ref="{{isMounted}}" onClick='apiPaiduiDeleted' onChildRef='saveChildRef1'>
+      取消排队
+    </van-button>
+  </view>
+</view>
+            </view>

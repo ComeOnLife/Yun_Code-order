@@ -1,0 +1,70 @@
+{
+	"pages": [
+		"pages/index/index",
+		"pages/order/order",
+		"pages/404/404",
+		"pages/orderList/orderList",
+		"pages/user/user",
+		"pages/orderMsg/orderMsg",
+		"pages/aboutUs/aboutUs",
+		"pages/contactUs/contactUs",
+		"pages/takeOut/tabkeOut",
+		"pages/wallet/wallet",
+		"pages/recharge/recharge",
+		"pages/walletList/walletList",
+		"pages/createOrderMsg/createOrderMsg",
+		"pages/address/address",
+		"pages/wxpay/wxpay",
+		"pages/takeoutTables/takeoutTables",
+		"pages/mobile/mobile",
+		"pages/article/article",
+		"pages/commentList/commentList",
+		"pages/commentAdd/commentAdd",
+		"pages/mendian/list/list",
+		"pages/paidui/faqi/faqi",
+		"pages/paidui/jieguo/jieguo",
+		"pages/yuyuezhuowei/faqi/faqi",
+		"pages/yuyuezhuowei/jieguo/jieguo",
+		"pages/member/member",
+		"pages/ant-move-runtime-logs/index",
+		"pages/ant-move-runtime-logs/specific/index"
+	],
+	"permission": {
+		"scope.userLocation": {
+			"desc": "你的位置信息将用于小程序位置接口的效果展示"
+		}
+	},
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarTextStyle": "black",
+		"backgroundColor": "#eee",
+		"titleBarColor": "#fff",
+		"defaultTitle": ""
+	},
+	"tabBar": {
+		"selectedColor": "#0097ff",
+		"backgroundColor": "#fff",
+		"textColor": "#666666",
+		"items": [
+			{
+				"pagePath": "pages/index/index",
+				"name": "首页",
+				"icon": "image/home.png",
+				"activeIcon": "image/home_cur.png"
+			},
+			{
+				"pagePath": "pages/orderList/orderList",
+				"name": "订单",
+				"icon": "image/order.png",
+				"activeIcon": "image/order_cur.png"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"name": "我的",
+				"icon": "image/user.png",
+				"activeIcon": "image/user_cur.png"
+			}
+		]
+	},
+	"sitemapLocation": "sitemap.json"
+}

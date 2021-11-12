@@ -1,0 +1,50 @@
+/* pages/wxpay/wxpay.wxss */
+.payMethod {
+    background: #fff;
+    padding: 30rpx;
+    border-bottom: 1px #d9d9d9 solid;
+}
+.payMethod_top {
+    font-size: 32rpx;
+}
+.payMethod_top .title {
+    display: flex;
+    line-height: 50rpx;
+}
+.payMethod_top .title image {
+    width: 50rpx;
+    height: 50rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+}
+.payMethod_bottom {
+    margin-top: 20rpx;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 200rpx;
+}
+.payMethod_item {
+    border: 1px #ddd solid;
+    border-radius: 8rpx;
+    flex-grow: 1;
+    margin-right: 20rpx;
+    text-align: center;
+    font-size: 32rpx;
+    padding: 15rpx 0;
+}
+.payMethod_item:last-child {
+    margin-right: 0;
+}
+.payMethod_item.cur {
+    border: 1px #0097fe solid;
+    color: #0097fe;
+}
+.payMethod_item.cur {
+    border: 1px #0097fe solid;
+    color: #0097fe;
+}
+.payMethod_tip {
+    color: #666;
+    padding: 20rpx 0 0 0;
+    font-size: 24rpx;
+}
